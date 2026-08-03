@@ -1,0 +1,357 @@
+{
+  "last_updated": "2026-08-03T10:28:12.756024",
+  "new_count": 35,
+  "total": 35,
+  "items": [
+    {
+      "title": "Google DeepMind says Gemini Robotics 2 enables full body control",
+      "url": "https://www.therobotreport.com/google-deepmind-says-gemini-robotics-2-enables-full-body-control/",
+      "summary": "DeepMind says Gemini Robotics 2 can control the five-fingered, 22 degree-of-freedom SharpaWave hand on Apptronik’s Apollo 2 humanoid. | Source: Google DeepMind Google DeepMind last week unveiled Gemini Robotics 2, the latest version of its vision-lan",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "新产品发布",
+      "hash": "f49d3d55659a3c3f20ecdf3d35260cf7"
+    },
+    {
+      "title": "Top 10 robotics stories of July 2026",
+      "url": "https://www.therobotreport.com/top-10-robotics-stories-july-2026/",
+      "summary": "This month, large funding rounds, new approaches to robot training, and new robot models drew our readers’ attention. Not to mention, a large change in U.S. policy when it comes to importing robotics dominated headlines in the last week of July 2026.",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "新产品发布",
+      "hash": "843e8233f26c3dc056e59ed378af6431"
+    },
+    {
+      "title": "FCC robot ruling shines a spotlight on U.S. policy; how next-gen AI can help warehousing",
+      "url": "https://www.therobotreport.com/fcc-robot-ruling-shines-spotlight-on-u-s-policy-how-next-gen-ai-can-help-warehousing/",
+      "summary": "The Robot Report Podcast · FCC robot ruling shines a spotlight on U.S. policy; how next-gen AI can help warehousing In Episode 255 of The Robot Report Podcast, we talk with Derik Pridmore, co-founder and CEO of OSARO. Derik Pridmore is CEO of OSARO. ",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "新功能发布",
+      "hash": "ef0cf1c0f0316c07bf32f7c7e8bea4bb"
+    },
+    {
+      "title": "KUKA deploys Automation Management Platform for North American automakers",
+      "url": "https://www.therobotreport.com/kuka-deploys-automation-management-platform-north-american-automakers/",
+      "summary": "The KTPO facility demonstrates how industrial automation can be enhanced with AI. Source: KUKA Group KUKA AG this week said it has successfully deployed its Automation Management Platform, or AMP, at the KUKA Toledo Production Operations in Ohio. AMP",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "新功能发布",
+      "hash": "08cb1ca70d628e0da18e24de223cf39b"
+    },
+    {
+      "title": "Procore Technologies acquires DroneDeploy for $845M",
+      "url": "https://www.therobotreport.com/procore-technologies-acquires-dronedeploy-845m/",
+      "summary": "DroneDeploy offers both ground and aerial automated inspections. | Source: DroneDeploy Procore Technologies Inc., a construction management software provider, this week said it will acquire DroneDeploy for approximately $845 million in cash. DroneDep",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "新功能发布",
+      "hash": "43962202b87f63ad276b1dadc92fe1df"
+    },
+    {
+      "title": "5 Physical AI infrastructure platforms shaping robotics in 2026",
+      "url": "https://www.therobotreport.com/5-physical-ai-infrastructure-platforms-shaping-robotics-in-2026/",
+      "summary": "From accelerated computing and simulation to data operations, open-source tooling, validation engineering, and continuous learning, these five platforms represent distinct control points in the emerging physical AI stack. For most of the modern AI bo",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "其他",
+      "hash": "c07e473ee6c4256a230e5ff2413581b5"
+    },
+    {
+      "title": "DoorDash gains FAA certification to operate its own drone delivery program",
+      "url": "https://www.therobotreport.com/doordash-gains-faa-certification-to-operate-its-own-drone-delivery-program/",
+      "summary": "DoorDash said its drone network may handle midrange deliveries, which are less attractive to Dashers. | Source: DoorDash More drone deliveries are taking to the skies. DoorDash yesterday said it has earned Part 135 air carrier certification from the ",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "其他",
+      "hash": "efe76c895aa9a6651585ee058ea55810"
+    },
+    {
+      "title": "Teradyne Robotics revenue rises 33% year over year in Q2",
+      "url": "https://www.therobotreport.com/teradyne-robotics-revenue-rises-33-year-over-year-in-q2/",
+      "summary": "Bobs Red Mill and Columbia use the UR20 robot for palletizing in their facility. | Source: Universal Robots Teradyne Robotics this week said it brought in $100 million in revenue in the second quarter of 2026. The North Reading, Mass.-based company i",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "重大合作",
+      "hash": "c6a14f1872e34e3683c47b6e8d05fc54"
+    },
+    {
+      "title": "GMEX Robotics to acquire MediaMeta.ai for social intelligence",
+      "url": "https://www.therobotreport.com/gmex-robotics-to-acquire-mediameta-ai-social-intelligence/",
+      "summary": "GMEX has evolved from a fitness equipment supplier to a provider of service and social robots. Source: GMEX Robotics GMEX Robotics Corp. yesterday said it has entered a definitive share-purchase agreement with Alpha Meta AI Pte. Ltd., MetaGen AI Ltd.",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "其他",
+      "hash": "b59fc128129925e151a8532f8aba9d3b"
+    },
+    {
+      "title": "Experts react to FCC limits on U.S. imports of new humanoid and mobile robots",
+      "url": "https://www.therobotreport.com/industry-reacts-fcc-ban-u-s-imports-new-humanoid-quadruped-robots/",
+      "summary": "A Unitree humanoid robot at the China Humanoid Robot Conference in Seoul. Credit: Eugene Demaitre As competition in next-generation robotics and AI intensifies, the U.S. government is restricting imports of certain robots and connected power inverter",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "新功能发布",
+      "hash": "d50c98ce8d786b128fe0ef1eccc3ec3f"
+    },
+    {
+      "title": "Registration is open for RoboBusiness 2026",
+      "url": "https://www.therobotreport.com/registration-is-open-for-robobusiness-2026/",
+      "summary": "Registration is now open for RoboBusiness 2026, the leading event for commercial robotics developers. This year, we’ll be celebrating 20 years of RoboBusiness and looking back at how it has helped the robotics industry advance over the past two decad",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "营销策略",
+      "hash": "9d1d7efbeff5f2c4f4318d8df4014b65"
+    },
+    {
+      "title": "ENvue Medical develops robotic feeding tube placement system",
+      "url": "https://www.therobotreport.com/envue-medical-develops-robotic-feeding-tube-placement-system/",
+      "summary": "ENvue Drive demonstrates insertion of a feeding tube into a patient. | Source: ENvue Medical ENvue Medical Inc. recently unveiled ENvue Drive, its robotic-assisted tool for automatically placing feeding tubes. The tool is built on the company’s elect",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "新产品发布",
+      "hash": "1166060cdc7b4ea6c9dfa62f9ec2e18b"
+    },
+    {
+      "title": "Agency Tool Company wants to make OTA software updates easier",
+      "url": "https://www.therobotreport.com/agency-tool-company-wants-to-make-ota-software-updates-easier/",
+      "summary": "ATC Deploy ships software to robots wherever they are. | Source: Agency Tool Company Jack Morrison and Davis Foster, co-founders of Scythe Robotics, today launched Agency Tool Co. The new startup seeks to build fast, reliable infrastructure for robot",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "新产品发布",
+      "hash": "7c4b57edf435eadf750d0e6058090253"
+    },
+    {
+      "title": "How integrated actuators improve humanoid robot joint performance and system integration",
+      "url": "https://www.therobotreport.com/how-integrated-actuators-improve-humanoid-robot-joint-performance-and-system-integration/",
+      "summary": "Humanoid robots have become an important area of research in robotics, attracting attention from universities, research institutions, and technology companies. Compared with traditional industrial robots that usually perform repetitive tasks in contr",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "其他",
+      "hash": "1e09b8748ae067415ce79b9bbb3c40a3"
+    },
+    {
+      "title": "NORD expands compact NORDAC VFD family to 200 hp",
+      "url": "https://www.therobotreport.com/nord-expands-nordac-compact-vfd-family-to-200-hp/",
+      "summary": "NORD Drivesystems’ NORDAC PRO VFD series. | Source: NORD Drivesystems NORD Drivesystems recently expanded its NORDAC PRO SK 500P VFD series. Now, the company’s NORDAC VFDs reach powers up to 200 hp with multi-protocol Ethernet interfaces, integrated ",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "营销策略",
+      "hash": "f9ec51b5fe28f1bf5977a6ac4600b5d6"
+    },
+    {
+      "title": "Travis Kalanick’s robotics company raises $1.7B, led by a16z",
+      "url": "https://techcrunch.com/2026/07/22/travis-kalanicks-robotics-company-raises-1-7b-led-by-a16z/",
+      "summary": "Uber is also investing in Travis Kalanick's company Atoms, which has made gauzy claims about using industrial AI to modernize the world.",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "重大合作",
+      "hash": "6a7f08f97575001b5f7fe58be9c4c2c9"
+    },
+    {
+      "title": "Why this CEO thinks video games make better training data than the internet",
+      "url": "https://techcrunch.com/video/why-this-ceo-thinks-video-games-make-better-training-data-than-the-internet/",
+      "summary": "When it comes to achieving artificial general intelligence (AGI), large language models just don’t have what it takes. Models like ChatGPT and Claude are great at text, but they’re less skilled at understanding how things actually move through space ",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "其他",
+      "hash": "1e9d0df00d1e791a9456c30fc6625459"
+    },
+    {
+      "title": "Your gaming data could be the secret to AGI, according to this Bezos-backed startup",
+      "url": "https://techcrunch.com/podcast/your-gaming-data-could-be-the-secret-to-agi-according-to-this-bezos-backed-startup/",
+      "summary": "When it comes to achieving artificial general intelligence (AGI), large language models just don’t have what it takes. Models like ChatGPT and Claude are great at text, but they’re less skilled at understanding how things actually move through space ",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "重大合作",
+      "hash": "a221c5f872c2530d7ec81224f1a3a1ca"
+    },
+    {
+      "title": "Autonomous vehicle hype is back, and Humble Robotics is bringing it to freight",
+      "url": "https://techcrunch.com/video/autonomous-vehicle-hype-is-back-and-humble-robotics-is-bringing-it-to-freights/",
+      "summary": "The autonomous vehicle space is starting to feel like a repeat of the 2016 hype cycle. Travis Kalanick is back building a robotics company, and the talent wars and capital are heating up the same way they did the first time around. The money’s flowin",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "其他",
+      "hash": "cace3177b75d2238e4982891d0d294fa"
+    },
+    {
+      "title": "Humble Robotics’ CEO says the tech finally caught up to the vision for autonomous vehicles",
+      "url": "https://techcrunch.com/podcast/humble-robotics-ceo-says-the-tech-finally-caught-up-to-the-vision-for-autonomous-vehicles/",
+      "summary": "We’ve said it before, and we’ll say it again: the autonomous vehicle space is starting to feel like a repeat of the 2016 hype cycle. Travis Kalanick is back building a robotics company, and the talent wars and capital are heating up the same way they",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "其他",
+      "hash": "d2035c483fd197112f02a4bb183b529c"
+    },
+    {
+      "title": "Robot hand company settles Tesla trade secret suit and announces $11M raise",
+      "url": "https://techcrunch.com/2026/06/29/robot-hand-company-settles-tesla-trade-secret-suit-and-announces-11m-raise/",
+      "summary": "The startup, Proception, is taking a unique approach to collecting training data to tackle one of the hardest problems in robotics: hands.",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "营销策略",
+      "hash": "d847e44ff01ae7e660ceaedc7b3a0e2c"
+    },
+    {
+      "title": "Marc Lore says that AI will soon enable anyone to open a restaurant",
+      "url": "https://techcrunch.com/2026/05/05/marc-lore-says-that-ai-will-soon-enable-anyone-open-a-restaurant/",
+      "summary": "Wonder wants to turn its robotic kitchens into AI-powered “restaurant factories,” letting anyone spin up a virtual food brand with a prompt.",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "营销策略",
+      "hash": "18521d413e03f5fc41e48c714300ea15"
+    },
+    {
+      "title": "Gecko Robotics lands the largest US Navy robotics deal yet",
+      "url": "https://techcrunch.com/2026/03/17/gecko-robotics-lands-the-largest-u-s-navy-robotics-deal-yet/",
+      "summary": "Gecko Robotics inked a five-year deal to help the U.S. Navy monitor and predict needed maintenance on its fleet of ships.",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "新产品发布",
+      "hash": "bc6dd73d512865a77e16d3658d1e4738"
+    },
+    {
+      "title": "Qualcomm’s partnership with Neura Robotics is just the beginning",
+      "url": "https://techcrunch.com/2026/03/09/qualcomms-partnership-with-neura-robotics-is-just-the-beginning/",
+      "summary": "Neura Robotics is going to build new robots on top of Qualcomm's new IQ10 processors that were released at CES.",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "新产品发布",
+      "hash": "cc1497b4633f5520f469aee4b1ec9b5e"
+    },
+    {
+      "title": "Upside Robotics is reducing fertilizer use and waste in corn crops",
+      "url": "https://techcrunch.com/2026/02/11/upside-robotics-is-reducing-fertilizer-use-and-waste-in-corn-crops/",
+      "summary": "Upside Robotics builds autonomous solar-powered robots that can help farmers reduce their fertilizer use by 70%.",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "其他",
+      "hash": "1c8445207aa41ff4a1d13e44edc85bd1"
+    },
+    {
+      "title": "How YC-backed Bucket Robotics survived its first CES",
+      "url": "https://techcrunch.com/2026/01/18/how-yc-backed-bucket-robotics-survived-its-first-ces/",
+      "summary": "Now, the startup is turning its attention to building the business, fundraising, and striking commercial deals.",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "重大合作",
+      "hash": "9d5436fa271a01ee03e03601ba081a7f"
+    },
+    {
+      "title": "Oshen built the first ocean robot to collect data in a Category 5 hurricane",
+      "url": "https://techcrunch.com/2026/01/17/oshen-built-the-first-ocean-robot-to-collect-data-in-a-category-5-hurricane/",
+      "summary": "Oshen has signed contracts with multiple government agencies for its C-Star robots to collect ocean data autonomously.",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "其他",
+      "hash": "92c77789643e8719cda2274179ab5fef"
+    },
+    {
+      "title": "Inside CES 2026’s “physical AI” takeover",
+      "url": "https://techcrunch.com/video/inside-ces-2026s-physical-ai-takeover/",
+      "summary": "After years of chatbots and image generators, AI is finally leaving the screen. At CES 2026, that shift became impossible to ignore. The annual tech showcase in Las Vegas was dominated by “physical AI” and robotics, from Boston Dynamic’s newly redesi",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "营销策略",
+      "hash": "66bba02168cba322df4f0861f40e4fb3"
+    },
+    {
+      "title": "Pickle Robot adds Tesla veteran as first CFO",
+      "url": "https://techcrunch.com/2025/12/18/pickle-robot-adds-tesla-veteran-as-first-cfo/",
+      "summary": "Jeff Evanson recently joined Pickle Robot as the company's first CFO as the startup has allegedly expanded its partnership with UPS.",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "新功能发布",
+      "hash": "1d9768d7dacaff448b96785222bba0ec"
+    },
+    {
+      "title": "1X struck a deal to send its ‘home’ humanoids to factories and warehouses",
+      "url": "https://techcrunch.com/2025/12/11/1x-struck-a-deal-to-send-its-home-humanoids-to-factories-and-warehouses/",
+      "summary": "Despite launching as a humanoid robot designed to help consumers around the house, 1X's Neo robots are heading to industrial use cases.",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "新产品发布",
+      "hash": "3492bc9cd8d91b1024ac8c9583f1f3a4"
+    },
+    {
+      "title": "This Khosla-backed startup can track drones, trucks, and robotaxis, inch by inch",
+      "url": "https://techcrunch.com/2025/11/20/this-khosla-based-startup-can-track-drones-trucks-and-robotaxis-inch-by-inch/",
+      "summary": "Point One Navigation, now valued at $230 million, is building out well beyond automotive.",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "重大合作",
+      "hash": "09637570cc2b91ca953eb9641f1737e6"
+    },
+    {
+      "title": "Why a researcher is building robots that look and act like bats",
+      "url": "https://techcrunch.com/2025/11/12/why-a-researcher-is-building-robots-that-look-and-act-like-bats/",
+      "summary": "These palm-sized robots use ultrasound signals to navigate harsh conditions in search and rescue missions.",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "其他",
+      "hash": "4b9cd21882806d613454dbdd34a9a810"
+    },
+    {
+      "title": "AI researchers ’embodied’ an LLM into a robot – and it started channeling Robin Williams",
+      "url": "https://techcrunch.com/2025/11/01/ai-researchers-embodied-an-llm-into-a-robot-and-it-started-channeling-robin-williams/",
+      "summary": "AI researchers at Andon Labs embedded various LLMs in a vacuum robot to test how ready they were to be embodied. And hilarity ensued.",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "其他",
+      "hash": "184d5c06187ac19d5e4cf6515182ed77"
+    },
+    {
+      "title": "Coco Robotics taps UCLA professor to lead new physical AI research lab",
+      "url": "https://techcrunch.com/2025/10/14/coco-robotics-taps-ucla-professor-to-lead-new-physical-ai-research-lab/",
+      "summary": "Coco Robotics is working toward automating its fleet of delivery robots using its millions of miles of collected data.",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "重大合作",
+      "hash": "52525d12b6845a8578e4e176cd91cb3c"
+    },
+    {
+      "title": "The world is just not quite ready for humanoids yet",
+      "url": "https://techcrunch.com/2025/10/10/the-world-is-just-not-quite-ready-for-humanoids-yet/",
+      "summary": "Despite the amount of money being injected into the industry, humanoids won't be able to learn dexterity -- or the fine motor movements with hands -- rendering them essentially useless.",
+      "source": "TechCrunch · Robotics",
+      "lang": "en",
+      "fetched_at": "2026-08-03",
+      "module": "其他",
+      "hash": "6ccae8724c70a77c37d13eef269751de"
+    }
+  ]
+}
