@@ -3,395 +3,335 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>机器人行业资讯 · ROBOT INTEL</title>
+<title>机器人行业资讯</title>
 <style>
-/* ── Token system ──────────────────────────────────────────── */
+
+/* ── Tokens ──────────────────────────────────────────────────── */
 :root {
-  --bg:      #060B14;
-  --surf:    #0A1628;
-  --surf-h:  #0D1E36;
-  --border:  #142440;
-  --border2: #1C3357;
-  --blue:    #38BDF8;
-  --cyan:    #22D3EE;
-  --green:   #34D399;
-  --text1:   #CBD5E1;
-  --text2:   #64748B;
-  --text3:   #2D4A6A;
-  --font:    -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Segoe UI', sans-serif;
-  --mono:    'SF Mono', 'Menlo', 'Cascadia Mono', 'Consolas', monospace;
+  --bg:    #07070F;
+  --surf:  #0C0C1A;
+  --sh:    #121228;
+  --br:    #161630;
+  --br2:   #1E1E40;
+  --blue:  #3D7EFF;
+  --t1:    #F0F0FA;
+  --t2:    #68688A;
+  --t3:    #2A2A48;
+  --font:  -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei',
+           'Segoe UI', sans-serif;
+  --mono:  'SF Mono', Menlo, 'Cascadia Mono', Consolas, monospace;
 }
 
-/* ── Reset ─────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 15px; }
 body {
   font-family: var(--font);
-  background-color: var(--bg);
-  /* Dot grid — engineering blueprint feel */
-  background-image: radial-gradient(circle, rgba(20,36,64,0.7) 1px, transparent 1px);
-  background-size: 28px 28px;
-  background-attachment: fixed;
-  color: var(--text1);
+  background: var(--bg);
+  color: var(--t1);
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 a { color: inherit; text-decoration: none; }
-::selection { background: rgba(56,189,248,0.2); }
+::selection { background: rgba(61,126,255,0.25); }
 
-/* ── Top bar ───────────────────────────────────────────────── */
+/* ── Topbar ───────────────────────────────────────────────────── */
 .topbar {
-  position: sticky; top: 0; z-index: 100;
-  background: linear-gradient(180deg, #04090F 0%, #070D1A 100%);
-  border-bottom: 1px solid var(--border2);
-  padding: 0 22px;
-  height: 56px;
+  position: sticky; top: 0; z-index: 200;
+  height: 60px; padding: 0 40px;
   display: flex; align-items: center; gap: 16px;
-  overflow: hidden;
+  background: rgba(7,7,15,0.88);
+  backdrop-filter: blur(24px) saturate(1.5);
+  border-bottom: 1px solid var(--br);
 }
-/* Scanline texture */
-.topbar::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent 0px, transparent 3px,
-    rgba(0,0,0,0.07) 3px, rgba(0,0,0,0.07) 4px
-  );
+.brand {
+  font-size: 15px; font-weight: 800;
+  letter-spacing: -0.01em; flex-shrink: 0;
 }
-/* Moving scan beam */
-.topbar::after {
-  content: ''; position: absolute;
-  top: 0; left: -40%; width: 28%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(56,189,248,0.045), transparent);
-  animation: scan-beam 9s linear infinite;
-}
-@keyframes scan-beam { to { left: 120%; } }
-
-.brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.brand-mark {
-  font-size: 20px; color: var(--blue);
-  text-shadow: 0 0 14px rgba(56,189,248,0.65), 0 0 28px rgba(56,189,248,0.25);
-}
-.brand-name {
-  font-size: 15px; font-weight: 700;
-  letter-spacing: 0.04em; color: var(--text1); white-space: nowrap;
-}
-.live-badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-family: var(--mono);
-  font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em;
-  color: var(--green);
-  border: 1px solid rgba(52,211,153,0.38);
-  padding: 2px 8px; border-radius: 2px;
-  background: rgba(52,211,153,0.05);
-}
-.live-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 7px var(--green);
-  animation: pulse-dot 1.8s ease-in-out infinite;
-}
-@keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
-
+.brand em { color: var(--blue); font-style: normal; }
 .topbar-meta {
-  flex: 1; min-width: 0;
-  display: flex; align-items: center; gap: 10px;
-  font-family: var(--mono);
-  font-size: 11px; letter-spacing: 0.06em;
-  overflow: hidden;
+  flex: 1; font-family: var(--mono); font-size: 11px;
+  color: var(--t3); letter-spacing: 0.05em;
+  display: flex; align-items: center; gap: 12px;
 }
-.mk { color: var(--text3); text-transform: uppercase; }
-.mv { color: var(--text2); }
-.md { color: var(--border2); }
-
+.tm-k { text-transform: uppercase; }
+.tm-v { color: var(--t2); }
 .admin-bar { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
 .btn {
   font-family: var(--mono); font-size: 11px; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase;
-  border-radius: 3px; padding: 6px 14px;
-  cursor: pointer; white-space: nowrap;
+  border-radius: 4px; padding: 7px 16px;
+  cursor: pointer; background: transparent;
+  white-space: nowrap; transition: all 0.15s;
   display: flex; align-items: center; gap: 6px;
-  transition: all 0.15s;
-  background: transparent;
 }
-.btn:disabled { opacity: 0.38; cursor: not-allowed; }
-.btn-fetch {
-  border: 1px solid rgba(56,189,248,0.45);
-  color: var(--blue);
-  box-shadow: 0 0 10px rgba(56,189,248,0.07), inset 0 0 8px rgba(56,189,248,0.04);
+.btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.btn-f {
+  border: 1px solid rgba(61,126,255,0.4); color: var(--blue);
+  box-shadow: 0 0 12px rgba(61,126,255,0.07);
 }
-.btn-fetch:hover:not(:disabled) {
-  border-color: var(--blue);
-  background: rgba(56,189,248,0.08);
-  box-shadow: 0 0 18px rgba(56,189,248,0.2), inset 0 0 12px rgba(56,189,248,0.07);
+.btn-f:hover:not(:disabled) {
+  border-color: var(--blue); background: rgba(61,126,255,0.09);
+  box-shadow: 0 0 22px rgba(61,126,255,0.22);
 }
-.btn-publish {
-  border: 1px solid rgba(52,211,153,0.42);
-  color: var(--green);
-  box-shadow: 0 0 10px rgba(52,211,153,0.06), inset 0 0 8px rgba(52,211,153,0.03);
+.btn-p {
+  border: 1px solid rgba(45,212,160,0.4); color: #2DD4A0;
 }
-.btn-publish:hover:not(:disabled) {
-  border-color: var(--green);
-  background: rgba(52,211,153,0.07);
-  box-shadow: 0 0 18px rgba(52,211,153,0.18), inset 0 0 12px rgba(52,211,153,0.06);
+.btn-p:hover:not(:disabled) {
+  border-color: #2DD4A0; background: rgba(45,212,160,0.07);
+  box-shadow: 0 0 22px rgba(45,212,160,0.18);
 }
 
-/* ── Progress beam ─────────────────────────────────────────── */
-.progress {
-  height: 2px; background: var(--border);
-  display: none; position: relative; overflow: hidden;
-}
+/* ── Progress ─────────────────────────────────────────────────── */
+.progress { height: 2px; background: var(--br); display: none; position: relative; overflow: hidden; }
 .progress.on { display: block; }
 .p-fill {
-  position: absolute; height: 100%; width: 32%;
-  background: linear-gradient(90deg, transparent, var(--cyan), var(--blue), transparent);
+  position: absolute; height: 100%; width: 30%;
+  background: linear-gradient(90deg, transparent, #6BA3FF, var(--blue), transparent);
   animation: pbeam 1.1s ease-in-out infinite;
 }
-@keyframes pbeam { 0% { left: -32%; } 100% { left: 115%; } }
+@keyframes pbeam { 0%{left:-30%} 100%{left:115%} }
 
-/* ── Alert ─────────────────────────────────────────────────── */
+/* ── Alert ────────────────────────────────────────────────────── */
 .alert {
-  display: none; padding: 8px 22px;
-  font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em;
+  display: none; padding: 9px 40px;
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.03em;
   align-items: center; gap: 10px; border-bottom: 1px solid;
 }
 .alert.on { display: flex; }
-.alert.info    { background: rgba(56,189,248,0.05); color: var(--cyan);  border-color: rgba(56,189,248,0.18); }
-.alert.success { background: rgba(52,211,153,0.05); color: var(--green); border-color: rgba(52,211,153,0.18); }
-.alert.error   { background: rgba(244,63,94,0.05);  color: #F87171;     border-color: rgba(244,63,94,0.18); }
-.alert-x { margin-left: auto; cursor: pointer; opacity: .45; font-size: 14px; flex-shrink: 0; }
+.alert.info    { background: rgba(61,126,255,0.05); color: #7BA8FF; border-color: rgba(61,126,255,0.15); }
+.alert.success { background: rgba(45,212,160,0.05); color: #2DD4A0; border-color: rgba(45,212,160,0.15); }
+.alert.error   { background: rgba(244,63,94,0.05);  color: #F87171; border-color: rgba(244,63,94,0.15); }
+.alert-x { margin-left: auto; cursor: pointer; opacity: .4; font-size: 14px; }
 .alert-x:hover { opacity: 1; }
 
-/* ── Filter bar ────────────────────────────────────────────── */
-.tabs-wrap {
+/* ── Filter nav ───────────────────────────────────────────────── */
+.filter-nav {
   display: none; align-items: center; gap: 6px;
-  padding: 8px 22px;
-  background: rgba(5,9,18,0.94);
-  border-bottom: 1px solid var(--border);
+  padding: 10px 40px;
+  background: rgba(7,7,15,0.9); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--br);
+  position: sticky; top: 60px; z-index: 100;
   overflow-x: auto; scrollbar-width: none;
-  position: sticky; top: 56px; z-index: 90;
-  backdrop-filter: blur(10px);
 }
-.tabs-wrap::-webkit-scrollbar { display: none; }
-.tabs-wrap.on { display: flex; }
-.tab {
+.filter-nav::-webkit-scrollbar { display: none; }
+.filter-nav.on { display: flex; }
+.ftab {
   flex-shrink: 0;
   font-family: var(--mono); font-size: 11px; font-weight: 500;
   letter-spacing: 0.07em; text-transform: uppercase;
-  padding: 5px 12px;
-  border: 1px solid var(--border2); border-radius: 2px;
-  color: var(--text2); cursor: pointer;
-  display: flex; align-items: center; gap: 7px;
+  padding: 5px 14px; border-radius: 20px;
+  border: 1px solid var(--br2); color: var(--t2);
+  background: transparent; cursor: pointer;
+  display: flex; align-items: center; gap: 6px;
   transition: all 0.15s; white-space: nowrap;
-  background: transparent;
 }
-.tab:hover { border-color: var(--text3); color: var(--text1); }
-.tab.active { border-color: var(--blue); color: var(--blue); background: rgba(56,189,248,0.06); }
-.tab .cnt { font-size: 10.5px; color: var(--text3); font-variant-numeric: tabular-nums; }
-.tab.active .cnt { color: rgba(56,189,248,0.65); }
+.ftab:hover { border-color: var(--t3); color: var(--t1); }
+.ftab.active { border-color: var(--blue); color: var(--blue); background: rgba(61,126,255,0.07); }
+.ftab .fcnt { font-size: 10px; color: var(--t3); }
+.ftab.active .fcnt { color: rgba(61,126,255,0.6); }
 
-/* ── Main ──────────────────────────────────────────────────── */
-.main { max-width: 960px; margin: 22px auto; padding: 0 18px; }
+/* ── Module color system ──────────────────────────────────────── */
+.m-product { --mc: #3D7EFF; --mr: 61,126,255;  }
+.m-feature  { --mc: #9B72F7; --mr: 155,114,247; }
+.m-partner  { --mc: #2DD4A0; --mr: 45,212,160;  }
+.m-market   { --mc: #F0B429; --mr: 240,180,41;  }
+.m-other    { --mc: #4B5E80; --mr: 75,94,128;   }
 
-/* Empty */
-.empty { text-align: center; padding: 80px 24px; font-family: var(--mono); }
-.empty-mark { font-size: 42px; color: var(--text3); margin-bottom: 16px; }
-.empty-h { font-size: 12.5px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text3); margin-bottom: 6px; }
-.empty-p { font-size: 11.5px; color: var(--text3); }
+/* ── Main ─────────────────────────────────────────────────────── */
+.main { max-width: 1140px; margin: 0 auto; padding: 44px 40px 72px; }
 
-/* ── Module sections ───────────────────────────────────────── */
-/* Per-module color palette */
-.section[data-mod="新产品发布"] { --mc: #38BDF8; --mc-bg: rgba(56,189,248,0.06); }
-.section[data-mod="新功能发布"] { --mc: #C084FC; --mc-bg: rgba(192,132,252,0.06); }
-.section[data-mod="重大合作"]  { --mc: #34D399; --mc-bg: rgba(52,211,153,0.06); }
-.section[data-mod="营销策略"]  { --mc: #FBBF24; --mc-bg: rgba(251,191,36,0.06); }
-.section[data-mod="其他"]     { --mc: #4B6078; --mc-bg: rgba(75,96,120,0.04); }
+/* ── Empty ────────────────────────────────────────────────────── */
+.empty {
+  text-align: center; padding: 110px 24px;
+  font-family: var(--mono);
+}
+.empty-icon { font-size: 56px; opacity: 0.25; margin-bottom: 24px; }
+.empty-h { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--t3); margin-bottom: 8px; }
+.empty-p { font-size: 12px; color: var(--t3); }
 
-.section {
+/* ── Module section ───────────────────────────────────────────── */
+.mod-section { margin-bottom: 64px; }
+
+/* Hero header — the "图文" element */
+.mod-hero {
+  display: flex; align-items: center; gap: 28px;
+  padding: 32px 36px;
+  background: linear-gradient(
+    130deg,
+    rgba(var(--mr), 0.11) 0%,
+    rgba(var(--mr), 0.04) 45%,
+    transparent 70%
+  );
+  border: 1px solid rgba(var(--mr), 0.18);
+  border-radius: 16px;
+  margin-bottom: 20px;
+  position: relative; overflow: hidden;
+}
+/* Ambient glow behind the right side */
+.mod-hero::after {
+  content: ''; position: absolute;
+  right: 0; top: 0; bottom: 0; width: 40%;
+  background: radial-gradient(ellipse at right center, rgba(var(--mr),0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.mod-icon-wrap {
+  width: 72px; height: 72px;
+  border-radius: 18px;
+  background: rgba(var(--mr), 0.12);
+  border: 1px solid rgba(var(--mr), 0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 34px; flex-shrink: 0;
+}
+.mod-label {
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--mc); margin-bottom: 7px;
+}
+.mod-name {
+  font-size: 28px; font-weight: 800;
+  letter-spacing: -0.025em; color: var(--t1); line-height: 1;
+}
+.mod-count {
+  margin-left: auto; flex-shrink: 0;
+  font-weight: 800; font-size: 42px;
+  color: var(--mc); opacity: 0.35;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Article card grid ────────────────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 10px;
+}
+
+/* Individual card */
+.card {
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 20px 22px;
   background: var(--surf);
-  border: 1px solid var(--border);
-  border-left: 2px solid var(--mc, var(--border2));
-  border-radius: 4px;
-  margin-bottom: 12px;
-  overflow: hidden;
+  border: 1px solid var(--br);
+  border-left: 3px solid var(--mc);
+  border-radius: 10px;
+  text-decoration: none; color: inherit;
+  transition: background 0.14s, transform 0.14s;
 }
-
-/* Section header — circuit-trace rule */
-.sec-head {
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px 15px;
-  cursor: pointer; user-select: none;
-  border-bottom: 1px solid var(--border);
-  transition: background 0.15s;
+.card:hover {
+  background: var(--sh);
+  transform: translateX(3px);
 }
-.sec-head:hover { background: var(--surf-h); }
-
-.sec-title { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-.sec-sym { font-size: 12px; color: var(--mc); }
-.sec-name {
-  font-size: 11px; font-weight: 700;
+.card-title {
+  font-size: 13.5px; font-weight: 500; line-height: 1.58;
+  color: var(--t1); flex: 1;
+  transition: color 0.12s;
+}
+.card:hover .card-title { color: #fff; }
+.card-meta { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.cm-src {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.04em;
+  color: var(--t3); border: 1px solid var(--br2);
+  padding: 2px 8px; border-radius: 3px;
+}
+.cm-date { font-family: var(--mono); font-size: 10px; color: var(--t3); }
+.cm-new {
+  font-family: var(--mono); font-size: 9px; font-weight: 700;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--mc);
+  color: var(--mc); border: 1px solid rgba(var(--mr), 0.35);
+  background: rgba(var(--mr), 0.07);
+  padding: 2px 8px; border-radius: 3px;
 }
-/* The "circuit trace" — key signature element */
-.sec-rule {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, var(--mc), transparent);
-  opacity: 0.22;
-  min-width: 20px;
-}
-.sec-cnt {
-  font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
-  color: var(--text3); flex-shrink: 0;
-}
-.chevron { font-size: 10px; color: var(--text3); transition: transform 0.2s; flex-shrink: 0; }
-.chevron.collapsed { transform: rotate(-90deg); }
 
-/* ── News items ────────────────────────────────────────────── */
-.item {
-  display: flex; align-items: flex-start; gap: 12px;
-  padding: 11px 15px 11px 13px;
-  border-bottom: 1px solid var(--border);
-  border-left: 2px solid transparent;
-  transition: background 0.12s, border-left-color 0.12s;
-  cursor: pointer;
-}
-.item:last-child { border-bottom: none; }
-.item:hover { background: var(--mc-bg); border-left-color: var(--mc); }
-
-.dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  margin-top: 7px; flex-shrink: 0;
-  background: var(--mc);
-  box-shadow: 0 0 6px var(--mc);
-  opacity: 0.6; transition: opacity 0.15s;
-}
-.item:hover .dot { opacity: 1; }
-
-.ibody { flex: 1; min-width: 0; }
-.ititle {
-  display: block; font-size: 13.5px; font-weight: 500;
-  color: var(--text1); line-height: 1.5; margin-bottom: 5px;
-  word-break: break-word; transition: color 0.12s;
-}
-.item:hover .ititle { color: #E8F4FD; }
-.imeta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.isrc {
-  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.04em;
-  color: var(--text3);
-  border: 1px solid var(--border2);
-  padding: 1px 7px; border-radius: 2px;
-}
-.idate {
-  font-family: var(--mono); font-size: 10.5px; color: var(--text3);
-}
-.inew {
-  font-family: var(--mono); font-size: 9.5px; font-weight: 700;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  border: 1px solid rgba(52,211,153,0.45);
-  color: var(--green);
-  padding: 1px 7px; border-radius: 2px;
-  background: rgba(52,211,153,0.06);
-  animation: pulse-new 2.2s ease-in-out infinite;
-}
-@keyframes pulse-new { 0%,100% { opacity: 1; } 50% { opacity: 0.55; } }
-
-/* ── Log ───────────────────────────────────────────────────── */
-.log-wrap { max-width: 960px; margin: 0 auto; padding: 0 18px 22px; }
+/* ── Log ──────────────────────────────────────────────────────── */
+.log-wrap { max-width: 1140px; margin: 0 auto; padding: 0 40px 40px; }
 .log-box {
-  background: #040810; border: 1px solid var(--border2);
-  border-left: 2px solid rgba(56,189,248,0.3);
-  border-radius: 4px; overflow: hidden; display: none;
+  background: #040409; border: 1px solid var(--br2);
+  border-left: 2px solid rgba(61,126,255,0.3);
+  border-radius: 8px; display: none; overflow: hidden;
 }
 .log-box.on { display: block; }
 .log-head {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 7px 14px; border-bottom: 1px solid var(--border);
+  padding: 8px 16px; border-bottom: 1px solid var(--br);
   font-family: var(--mono); font-size: 10px;
-  letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3);
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--t3);
 }
-.log-close { cursor: pointer; transition: color 0.1s; }
-.log-close:hover { color: var(--text2); }
+.log-close { cursor: pointer; }
+.log-close:hover { color: var(--t2); }
 .log-body {
-  padding: 12px 14px; font-family: var(--mono);
-  font-size: 11.5px; line-height: 1.75;
-  color: var(--text2); white-space: pre-wrap; word-break: break-all;
+  padding: 14px 16px; font-family: var(--mono);
+  font-size: 11.5px; line-height: 1.7; color: var(--t2);
+  white-space: pre-wrap; word-break: break-all;
   max-height: 260px; overflow-y: auto;
 }
 .log-body::-webkit-scrollbar { width: 3px; }
-.log-body::-webkit-scrollbar-track { background: transparent; }
-.log-body::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+.log-body::-webkit-scrollbar-thumb { background: var(--br2); border-radius: 2px; }
 
-/* ── Footer ────────────────────────────────────────────────── */
+/* ── Footer ───────────────────────────────────────────────────── */
 .footer {
-  text-align: center; padding: 22px;
+  text-align: center; padding: 28px;
   font-family: var(--mono); font-size: 10.5px;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--text3); line-height: 2.2;
-}
-.footer code {
-  color: var(--text2); border: 1px solid var(--border2);
-  padding: 1px 6px; border-radius: 2px;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--t3);
 }
 
-/* ── Responsive ────────────────────────────────────────────── */
-@media (max-width: 620px) {
-  .topbar { padding: 0 14px; gap: 10px; }
-  .topbar-meta { display: none; }
-  .main, .log-wrap { padding: 0 12px 20px; }
-  .brand-name { font-size: 13px; }
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 720px) {
+  .topbar { padding: 0 18px; }
+  .topbar-meta .tm-k:nth-child(n+3),
+  .topbar-meta .tm-v:nth-child(n+4) { display: none; }
+  .filter-nav, .alert { padding-left: 18px; padding-right: 18px; }
+  .main, .log-wrap { padding-left: 16px; padding-right: 16px; }
+  .mod-hero { padding: 22px 20px; gap: 16px; }
+  .mod-icon-wrap { width: 56px; height: 56px; font-size: 26px; }
+  .mod-name { font-size: 22px; }
+  .mod-count { font-size: 30px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .topbar::after, .p-fill,
-  .live-dot, .inew { animation: none; }
+  .p-fill { animation: none; }
+  .card { transition: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- ── Header ─────────────────────────────────────────────── -->
+<!-- ── Topbar ─────────────────────────────────────────────────── -->
 <header class="topbar">
-  <div class="brand">
-    <span class="brand-mark">◈</span>
-    <span class="brand-name">机器人行业资讯</span>
-    <span class="live-badge"><span class="live-dot"></span>LIVE</span>
-  </div>
+  <div class="brand">机器人行业资讯<em>·</em></div>
   <div class="topbar-meta">
-    <span class="mk">SCAN</span>
-    <span class="mv" id="metaTime">——</span>
-    <span class="md">·</span>
-    <span class="mk">ITEMS</span>
-    <span class="mv" id="metaTotal">000</span>
+    <span class="tm-k">UPDATED</span>
+    <span class="tm-v" id="mTime">——</span>
+    <span class="tm-k">ITEMS</span>
+    <span class="tm-v" id="mTotal">000</span>
   </div>
-  <!-- Admin controls — local only -->
   <div class="admin-bar" id="adminBar" style="display:none">
-    <button class="btn btn-fetch"   id="btnFetch"   onclick="doFetch()">⬡ FETCH</button>
-    <button class="btn btn-publish" id="btnPublish" onclick="doPublish()">↑ PUBLISH</button>
+    <button class="btn btn-f" id="btnF" onclick="doFetch()">⬡ FETCH</button>
+    <button class="btn btn-p" id="btnP" onclick="doPublish()">↑ PUBLISH</button>
   </div>
 </header>
 
-<!-- ── Progress ───────────────────────────────────────────── -->
+<!-- ── Progress ──────────────────────────────────────────────── -->
 <div class="progress" id="progress"><div class="p-fill"></div></div>
 
-<!-- ── Alert ──────────────────────────────────────────────── -->
+<!-- ── Alert ─────────────────────────────────────────────────── -->
 <div class="alert" id="alert">
   <span id="alertMsg"></span>
   <span class="alert-x" onclick="hideAlert()">✕</span>
 </div>
 
-<!-- ── Filter ─────────────────────────────────────────────── -->
-<nav class="tabs-wrap" id="tabsWrap"></nav>
+<!-- ── Filter nav ────────────────────────────────────────────── -->
+<nav class="filter-nav" id="filterNav"></nav>
 
-<!-- ── Content ────────────────────────────────────────────── -->
-<main class="main" id="mainContent">
+<!-- ── Content ───────────────────────────────────────────────── -->
+<div class="main" id="main">
   <div class="empty">
-    <div class="empty-mark">◈</div>
-    <div class="empty-h">INITIALIZING DATA STREAM</div>
-    <div class="empty-p">Loading…</div>
+    <div class="empty-icon">⟳</div>
+    <div class="empty-h">LOADING</div>
+    <div class="empty-p">Fetching data…</div>
   </div>
-</main>
+</div>
 
-<!-- ── Log ────────────────────────────────────────────────── -->
+<!-- ── Log ───────────────────────────────────────────────────── -->
 <div class="log-wrap">
   <div class="log-box" id="logBox">
     <div class="log-head">
@@ -405,188 +345,188 @@ a { color: inherit; text-decoration: none; }
 <footer class="footer" id="footer"></footer>
 
 <script>
-// ─── Mode ────────────────────────────────────────────────────
+// ── Mode ──────────────────────────────────────────────────────
 const IS_LOCAL = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-const NEWS_URL  = IS_LOCAL ? '/api/news'  : './news_cache.json';
+const NEWS_URL  = IS_LOCAL ? '/api/news' : './news_cache.json';
 if (IS_LOCAL) document.getElementById('adminBar').style.display = 'flex';
 
-// ─── Module config ───────────────────────────────────────────
-const MOD_ORDER = ['新产品发布','新功能发布','重大合作','营销策略','其他'];
-const MOD_ICON  = { '新产品发布':'🤖','新功能发布':'⚡','重大合作':'🤝','营销策略':'📣','其他':'📰' };
+// ── Module config ─────────────────────────────────────────────
+const MOD_ORDER = ['新产品发布', '新功能发布', '重大合作', '营销策略', '其他'];
+const MOD_CFG = {
+  '新产品发布': { icon: '🤖', cls: 'm-product', label: 'PRODUCT LAUNCH'     },
+  '新功能发布': { icon: '⚡', cls: 'm-feature',  label: 'FEATURE UPDATE'     },
+  '重大合作':  { icon: '🤝', cls: 'm-partner',  label: 'MAJOR PARTNERSHIP'  },
+  '营销策略':  { icon: '📣', cls: 'm-market',   label: 'MARKET STRATEGY'    },
+  '其他':     { icon: '📰', cls: 'm-other',    label: 'INTELLIGENCE'        },
+};
 
-let newsData     = null;
-let activeFilter = null;
+let data = null, activeFilter = null;
 
-// ─── Data ────────────────────────────────────────────────────
-async function loadNews() {
+// ── Load ──────────────────────────────────────────────────────
+async function load() {
   try {
     const r = await fetch(NEWS_URL + '?t=' + Date.now());
-    if (!r.ok) throw new Error('HTTP ' + r.status);
+    if (!r.ok) throw 0;
     return await r.json();
-  } catch(e) { return { items:[], last_updated:null, new_count:0, total:0 }; }
+  } catch { return null; }
 }
 
-// ─── Actions ─────────────────────────────────────────────────
+// ── Actions (local only) ──────────────────────────────────────
 async function doFetch() {
-  setBusy(true, 'fetch');
-  showAlert('SCANNING — ACQUIRING LATEST ROBOT INTEL…', 'info');
+  setBusy(true, 'f');
+  showAlert('SCANNING — ACQUIRING LATEST INTEL…', 'info');
   try {
-    const res = await (await fetch('/api/fetch', {method:'POST'})).json();
+    const res = await (await fetch('/api/fetch', { method: 'POST' })).json();
     showLog(res.log, res.err);
-    showAlert(res.ok
-      ? (res.new_count > 0 ? `SCAN COMPLETE — ${res.new_count} NEW ITEMS` : 'SCAN COMPLETE — NO NEW DATA')
-      : 'SCAN ERROR — CHECK SYSTEM LOG',
-      res.ok ? 'success' : 'error');
-    newsData = await loadNews();
+    showAlert(
+      res.ok ? (res.new_count > 0 ? `SCAN COMPLETE — ${res.new_count} NEW ITEMS` : 'SCAN COMPLETE — NO NEW DATA')
+             : 'SCAN ERROR — CHECK SYSTEM LOG',
+      res.ok ? 'success' : 'error'
+    );
+    data = await load() || data;
     render();
   } catch(e) { showAlert('CONNECTION FAILED: ' + e.message, 'error'); }
-  finally    { setBusy(false, 'fetch'); }
+  finally    { setBusy(false, 'f'); }
 }
 
 async function doPublish() {
-  setBusy(true, 'publish');
+  setBusy(true, 'p');
   showAlert('UPLOADING TO REMOTE…', 'info');
   try {
-    const res = await (await fetch('/api/publish', {method:'POST'})).json();
+    const res = await (await fetch('/api/publish', { method: 'POST' })).json();
     showLog(res.log, res.err);
-    showAlert(res.ok ? 'PUBLISH OK — REMOTE UPDATES IN ~1 MIN' : 'PUBLISH FAILED — CHECK LOG',
-              res.ok ? 'success' : 'error');
+    showAlert(res.ok ? 'PUBLISH OK — UPDATES IN ~1 MIN' : 'PUBLISH FAILED', res.ok ? 'success' : 'error');
   } catch(e) { showAlert('PUBLISH FAILED: ' + e.message, 'error'); }
-  finally    { setBusy(false, 'publish'); }
+  finally    { setBusy(false, 'p'); }
 }
 
-// ─── UI helpers ──────────────────────────────────────────────
+// ── UI helpers ────────────────────────────────────────────────
 function setBusy(on, w) {
   document.getElementById('progress').classList.toggle('on', on);
-  ['btnFetch','btnPublish'].forEach(id => document.getElementById(id).disabled = on);
-  document.getElementById('btnFetch').innerHTML   = (on && w==='fetch')    ? '⏳ SCANNING…'   : '⬡ FETCH';
-  document.getElementById('btnPublish').innerHTML = (on && w==='publish')  ? '⏳ UPLOADING…'  : '↑ PUBLISH';
+  ['btnF','btnP'].forEach(id => document.getElementById(id).disabled = on);
+  document.getElementById('btnF').innerHTML = (on && w==='f') ? '⏳ SCANNING…'  : '⬡ FETCH';
+  document.getElementById('btnP').innerHTML = (on && w==='p') ? '⏳ UPLOADING…' : '↑ PUBLISH';
 }
 function showAlert(msg, type) {
-  Object.assign(document.getElementById('alertMsg'), {textContent: msg});
+  document.getElementById('alertMsg').textContent = msg;
   document.getElementById('alert').className = `alert on ${type}`;
 }
 function hideAlert() { document.getElementById('alert').classList.remove('on'); }
 function showLog(log, err) {
-  const t = [log,err].filter(Boolean).join('\n').trim();
+  const t = [log, err].filter(Boolean).join('\n').trim();
   if (!t) return;
   document.getElementById('logBody').textContent = t;
   document.getElementById('logBox').classList.add('on');
 }
 
-// ─── Format ──────────────────────────────────────────────────
+// ── Utilities ─────────────────────────────────────────────────
+const esc  = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const pad3 = n => String(n||0).padStart(3, '0');
 function fmtTime(iso) {
   if (!iso) return '——';
   const d = new Date(iso), p = n => String(n).padStart(2,'0');
-  return isNaN(d) ? iso
-    : `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
+  return isNaN(d) ? iso : `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
 }
-const pad3 = n => String(n||0).padStart(3,'0');
-const esc  = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 
-// ─── Render ──────────────────────────────────────────────────
+// ── Render ────────────────────────────────────────────────────
 function renderMeta(d) {
-  document.getElementById('metaTime').textContent  = fmtTime(d?.last_updated);
-  document.getElementById('metaTotal').textContent = pad3(d?.total || d?.items?.length || 0);
+  document.getElementById('mTime').textContent  = fmtTime(d?.last_updated);
+  document.getElementById('mTotal').textContent = pad3(d?.total || d?.items?.length || 0);
 }
 
-function renderTabs(d) {
-  const nav = document.getElementById('tabsWrap');
+function renderFilter(d) {
+  const nav = document.getElementById('filterNav');
   const items = d?.items || [];
   if (!items.length) { nav.classList.remove('on'); return; }
-
   const counts = {};
   items.forEach(i => counts[i.module] = (counts[i.module]||0)+1);
   nav.innerHTML = ''; nav.classList.add('on');
-
-  const mkTab = (label, mod, cnt) => {
-    const t = document.createElement('div');
-    t.className = 'tab' + (activeFilter === mod ? ' active' : '');
-    t.innerHTML = `${esc(label)} <span class="cnt">${pad3(cnt)}</span>`;
-    t.onclick = () => { activeFilter = activeFilter === mod ? null : mod; render(); };
-    return t;
+  const mk = (label, mod, cnt) => {
+    const b = document.createElement('button');
+    b.className = 'ftab' + (activeFilter === mod ? ' active' : '');
+    b.innerHTML = `${esc(label)} <span class="fcnt">${cnt}</span>`;
+    b.onclick = () => { activeFilter = (activeFilter===mod && mod!==null) ? null : mod; render(); };
+    return b;
   };
-  nav.appendChild(mkTab('ALL', null, items.length));
-  MOD_ORDER.forEach(m => counts[m] && nav.appendChild(mkTab(MOD_ICON[m]+' '+m, m, counts[m])));
+  nav.appendChild(mk('ALL', null, items.length));
+  MOD_ORDER.forEach(m => counts[m] && nav.appendChild(mk(MOD_CFG[m].icon + ' ' + m, m, counts[m])));
 }
 
-function renderContent(d) {
-  const main  = document.getElementById('mainContent');
+function renderMain(d) {
+  const main  = document.getElementById('main');
   const items = d?.items || [];
-
   if (!items.length) {
     main.innerHTML = `
       <div class="empty">
-        <div class="empty-mark">◈</div>
-        <div class="empty-h">${IS_LOCAL ? 'AWAITING FIRST SCAN' : 'NO DATA STREAM'}</div>
-        <div class="empty-p">${IS_LOCAL ? 'Press FETCH to begin data acquisition' : 'Administrator has not published data yet'}</div>
+        <div class="empty-icon">${IS_LOCAL ? '⟳' : '○'}</div>
+        <div class="empty-h">${IS_LOCAL ? 'AWAITING FIRST SCAN' : 'NO DATA'}</div>
+        <div class="empty-p">${IS_LOCAL ? 'Press FETCH to begin' : 'Administrator has not published data yet'}</div>
       </div>`;
     return;
   }
-
   const newSet   = new Set(items.slice(0, d.new_count||0).map(i => i.url));
   const filtered = activeFilter ? items.filter(i => i.module === activeFilter) : items;
   const grouped  = {};
   filtered.forEach(i => (grouped[i.module] = grouped[i.module]||[]).push(i));
-
   main.innerHTML = '';
   MOD_ORDER.forEach(mod => grouped[mod] && main.appendChild(buildSection(mod, grouped[mod], newSet)));
 }
 
 function buildSection(mod, items, newSet) {
-  const sec  = document.createElement('div');
-  sec.className = 'section';
-  sec.dataset.mod = mod;
+  const cfg = MOD_CFG[mod];
+  const sec = document.createElement('div');
+  sec.className = `mod-section ${cfg.cls}`;
 
-  const head = document.createElement('div');
-  head.className = 'sec-head';
-  head.innerHTML = `
-    <div class="sec-title">
-      <span class="sec-sym">◈</span>
-      <span class="sec-name">${esc(mod)}</span>
+  // Hero header
+  const hero = document.createElement('div');
+  hero.className = 'mod-hero';
+  hero.innerHTML = `
+    <div class="mod-icon-wrap">${cfg.icon}</div>
+    <div>
+      <div class="mod-label">${cfg.label}</div>
+      <div class="mod-name">${esc(mod)}</div>
     </div>
-    <div class="sec-rule"></div>
-    <span class="sec-cnt">[ ${pad3(items.length)} ]</span>
-    <span class="chevron">▾</span>`;
+    <div class="mod-count">${pad3(items.length)}</div>
+  `;
+  sec.appendChild(hero);
 
-  const list = document.createElement('div');
-  head.onclick = () => {
-    const hidden = list.style.display === 'none';
-    list.style.display = hidden ? '' : 'none';
-    head.querySelector('.chevron').classList.toggle('collapsed', !hidden);
-  };
-
+  // Card grid
+  const grid = document.createElement('div');
+  grid.className = 'card-grid';
   items.forEach(item => {
-    const row = document.createElement('div');
-    row.className = 'item';
-    row.onclick = e => { if (!e.target.closest('a')) window.open(item.url,'_blank','noopener'); };
-    row.innerHTML = `
-      <div class="dot"></div>
-      <div class="ibody">
-        <a class="ititle" href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.title)}</a>
-        <div class="imeta">
-          <span class="isrc">${esc(item.source||'SEARCH')}</span>
-          ${item.fetched_at ? `<span class="idate">${esc(item.fetched_at)}</span>` : ''}
-          ${newSet.has(item.url) ? '<span class="inew">NEW</span>' : ''}
-        </div>
+    const a = document.createElement('a');
+    a.className = 'card';
+    a.href = item.url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    const isNew = newSet.has(item.url);
+    a.innerHTML = `
+      <div class="card-title">${esc(item.title)}</div>
+      <div class="card-meta">
+        <span class="cm-src">${esc(item.source||'SEARCH')}</span>
+        ${item.fetched_at ? `<span class="cm-date">${esc(item.fetched_at)}</span>` : ''}
+        ${isNew ? '<span class="cm-new">NEW</span>' : ''}
       </div>`;
-    list.appendChild(row);
+    grid.appendChild(a);
   });
-
-  sec.appendChild(head); sec.appendChild(list);
+  sec.appendChild(grid);
   return sec;
 }
 
 function renderFooter() {
   document.getElementById('footer').innerHTML = IS_LOCAL
-    ? `LOCAL ADMIN · <code>localhost:8080</code> · FETCH → PUBLISH TO SYNC`
-    : `READ-ONLY · DATA CURATED BY ADMIN`;
+    ? 'LOCAL ADMIN · FETCH → PUBLISH TO SYNC'
+    : 'READ ONLY · DATA CURATED BY ADMIN';
 }
 
-function render() { renderMeta(newsData); renderTabs(newsData); renderContent(newsData); }
+function render() { renderMeta(data); renderFilter(data); renderMain(data); }
 
-// ─── Init ─────────────────────────────────────────────────────
-(async () => { newsData = await loadNews(); render(); renderFooter(); })();
+// ── Init ──────────────────────────────────────────────────────
+(async () => {
+  data = await load() || { items:[], last_updated:null, new_count:0, total:0 };
+  render();
+  renderFooter();
+})();
 </script>
 </body>
 </html>
