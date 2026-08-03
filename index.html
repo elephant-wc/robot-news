@@ -3,454 +3,551 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>机器人行业资讯</title>
+<title>机器人行业资讯 · ROBOT INTEL</title>
 <style>
-/* ─── Reset ─────────────────────────────────────────────── */
+/* ── Token system ──────────────────────────────────────────── */
+:root {
+  --bg:      #060B14;
+  --surf:    #0A1628;
+  --surf-h:  #0D1E36;
+  --border:  #142440;
+  --border2: #1C3357;
+  --blue:    #38BDF8;
+  --cyan:    #22D3EE;
+  --green:   #34D399;
+  --text1:   #CBD5E1;
+  --text2:   #64748B;
+  --text3:   #2D4A6A;
+  --font:    -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Segoe UI', sans-serif;
+  --mono:    'SF Mono', 'Menlo', 'Cascadia Mono', 'Consolas', monospace;
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 15px; scroll-behavior: smooth; }
+html { font-size: 15px; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
-  background: #F0F4F8;
-  color: #1E293B;
+  font-family: var(--font);
+  background-color: var(--bg);
+  /* Dot grid — engineering blueprint feel */
+  background-image: radial-gradient(circle, rgba(20,36,64,0.7) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-attachment: fixed;
+  color: var(--text1);
   min-height: 100vh;
 }
 a { color: inherit; text-decoration: none; }
+::selection { background: rgba(56,189,248,0.2); }
 
-/* ─── Top bar ────────────────────────────────────────────── */
+/* ── Top bar ───────────────────────────────────────────────── */
 .topbar {
   position: sticky; top: 0; z-index: 100;
-  background: linear-gradient(135deg, #0F2744 0%, #1A56A8 100%);
-  box-shadow: 0 2px 10px rgba(0,0,0,.3);
-  padding: 0 20px;
+  background: linear-gradient(180deg, #04090F 0%, #070D1A 100%);
+  border-bottom: 1px solid var(--border2);
+  padding: 0 22px;
   height: 56px;
-  display: flex; align-items: center; gap: 12px;
-}
-.brand { display: flex; align-items: center; gap: 9px; flex-shrink: 0; }
-.brand-icon { font-size: 22px; line-height: 1; }
-.brand-name { font-size: 16px; font-weight: 700; color: #fff; white-space: nowrap; letter-spacing: .02em; }
-.topbar-meta {
-  flex: 1; min-width: 0;
-  display: flex; align-items: center; gap: 12px;
-  font-size: 12.5px; color: rgba(255,255,255,.65);
+  display: flex; align-items: center; gap: 16px;
   overflow: hidden;
 }
-.topbar-meta span { white-space: nowrap; }
-.meta-dot { opacity: .4; }
+/* Scanline texture */
+.topbar::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px, transparent 3px,
+    rgba(0,0,0,0.07) 3px, rgba(0,0,0,0.07) 4px
+  );
+}
+/* Moving scan beam */
+.topbar::after {
+  content: ''; position: absolute;
+  top: 0; left: -40%; width: 28%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(56,189,248,0.045), transparent);
+  animation: scan-beam 9s linear infinite;
+}
+@keyframes scan-beam { to { left: 120%; } }
 
-/* Admin buttons (local only) */
-.admin-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.brand-mark {
+  font-size: 20px; color: var(--blue);
+  text-shadow: 0 0 14px rgba(56,189,248,0.65), 0 0 28px rgba(56,189,248,0.25);
+}
+.brand-name {
+  font-size: 15px; font-weight: 700;
+  letter-spacing: 0.04em; color: var(--text1); white-space: nowrap;
+}
+.live-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--mono);
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em;
+  color: var(--green);
+  border: 1px solid rgba(52,211,153,0.38);
+  padding: 2px 8px; border-radius: 2px;
+  background: rgba(52,211,153,0.05);
+}
+.live-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 7px var(--green);
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+@keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+
+.topbar-meta {
+  flex: 1; min-width: 0;
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.06em;
+  overflow: hidden;
+}
+.mk { color: var(--text3); text-transform: uppercase; }
+.mv { color: var(--text2); }
+.md { color: var(--border2); }
+
+.admin-bar { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 .btn {
-  border: none; border-radius: 6px;
-  padding: 6px 14px; font-size: 13px; font-weight: 600;
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  border-radius: 3px; padding: 6px 14px;
   cursor: pointer; white-space: nowrap;
-  display: flex; align-items: center; gap: 5px;
-  transition: opacity .15s, background .15s;
+  display: flex; align-items: center; gap: 6px;
+  transition: all 0.15s;
+  background: transparent;
 }
-.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn:disabled { opacity: 0.38; cursor: not-allowed; }
 .btn-fetch {
-  background: rgba(255,255,255,.18);
-  border: 1.5px solid rgba(255,255,255,.45);
-  color: #fff;
+  border: 1px solid rgba(56,189,248,0.45);
+  color: var(--blue);
+  box-shadow: 0 0 10px rgba(56,189,248,0.07), inset 0 0 8px rgba(56,189,248,0.04);
 }
-.btn-fetch:hover:not(:disabled) { background: rgba(255,255,255,.3); }
+.btn-fetch:hover:not(:disabled) {
+  border-color: var(--blue);
+  background: rgba(56,189,248,0.08);
+  box-shadow: 0 0 18px rgba(56,189,248,0.2), inset 0 0 12px rgba(56,189,248,0.07);
+}
 .btn-publish {
-  background: #10B981;
-  border: 1.5px solid #059669;
-  color: #fff;
+  border: 1px solid rgba(52,211,153,0.42);
+  color: var(--green);
+  box-shadow: 0 0 10px rgba(52,211,153,0.06), inset 0 0 8px rgba(52,211,153,0.03);
 }
-.btn-publish:hover:not(:disabled) { background: #059669; }
+.btn-publish:hover:not(:disabled) {
+  border-color: var(--green);
+  background: rgba(52,211,153,0.07);
+  box-shadow: 0 0 18px rgba(52,211,153,0.18), inset 0 0 12px rgba(52,211,153,0.06);
+}
 
-/* ─── Progress bar ───────────────────────────────────────── */
-.progress { height: 3px; background: #DBEAFE; display: none; overflow: hidden; position: relative; }
+/* ── Progress beam ─────────────────────────────────────────── */
+.progress {
+  height: 2px; background: var(--border);
+  display: none; position: relative; overflow: hidden;
+}
 .progress.on { display: block; }
-.progress-fill {
-  position: absolute; height: 100%; width: 35%;
-  background: linear-gradient(90deg, #38BDF8, #2563EB, #38BDF8);
-  background-size: 200% 100%;
-  animation: pslide 1.4s ease-in-out infinite;
+.p-fill {
+  position: absolute; height: 100%; width: 32%;
+  background: linear-gradient(90deg, transparent, var(--cyan), var(--blue), transparent);
+  animation: pbeam 1.1s ease-in-out infinite;
 }
-@keyframes pslide { 0% { left: -35%; } 100% { left: 105%; } }
+@keyframes pbeam { 0% { left: -32%; } 100% { left: 115%; } }
 
-/* ─── Alert ──────────────────────────────────────────────── */
-.alert { display: none; padding: 9px 20px; font-size: 13px; align-items: center; gap: 10px; }
+/* ── Alert ─────────────────────────────────────────────────── */
+.alert {
+  display: none; padding: 8px 22px;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em;
+  align-items: center; gap: 10px; border-bottom: 1px solid;
+}
 .alert.on { display: flex; }
-.alert.info    { background: #EFF6FF; color: #1D4ED8; border-bottom: 1px solid #BFDBFE; }
-.alert.success { background: #F0FDF4; color: #166534; border-bottom: 1px solid #BBF7D0; }
-.alert.error   { background: #FEF2F2; color: #991B1B; border-bottom: 1px solid #FECACA; }
-.alert-x { margin-left: auto; cursor: pointer; opacity: .55; font-size: 16px; flex-shrink: 0; }
+.alert.info    { background: rgba(56,189,248,0.05); color: var(--cyan);  border-color: rgba(56,189,248,0.18); }
+.alert.success { background: rgba(52,211,153,0.05); color: var(--green); border-color: rgba(52,211,153,0.18); }
+.alert.error   { background: rgba(244,63,94,0.05);  color: #F87171;     border-color: rgba(244,63,94,0.18); }
+.alert-x { margin-left: auto; cursor: pointer; opacity: .45; font-size: 14px; flex-shrink: 0; }
 .alert-x:hover { opacity: 1; }
 
-/* ─── Filter tabs ────────────────────────────────────────── */
+/* ── Filter bar ────────────────────────────────────────────── */
 .tabs-wrap {
-  background: #fff; border-bottom: 1px solid #E2E8F0;
-  padding: 0 20px; display: none; align-items: center; gap: 2px;
-  overflow-x: auto; scrollbar-width: none; min-height: 46px;
+  display: none; align-items: center; gap: 6px;
+  padding: 8px 22px;
+  background: rgba(5,9,18,0.94);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto; scrollbar-width: none;
+  position: sticky; top: 56px; z-index: 90;
+  backdrop-filter: blur(10px);
 }
 .tabs-wrap::-webkit-scrollbar { display: none; }
 .tabs-wrap.on { display: flex; }
 .tab {
-  flex-shrink: 0; padding: 11px 14px;
-  font-size: 13px; font-weight: 500; color: #64748B;
-  cursor: pointer; border-bottom: 2.5px solid transparent;
-  margin-bottom: -1px; white-space: nowrap;
-  transition: color .15s, border-color .15s;
-  display: flex; align-items: center; gap: 6px;
+  flex-shrink: 0;
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  padding: 5px 12px;
+  border: 1px solid var(--border2); border-radius: 2px;
+  color: var(--text2); cursor: pointer;
+  display: flex; align-items: center; gap: 7px;
+  transition: all 0.15s; white-space: nowrap;
+  background: transparent;
 }
-.tab:hover { color: #1E40AF; }
-.tab.active { color: #1D4ED8; border-color: #2563EB; font-weight: 600; }
-.tab .cnt {
-  background: #F1F5F9; color: #64748B;
-  border-radius: 10px; padding: 1px 7px;
-  font-size: 11.5px; font-weight: 700;
-}
-.tab.active .cnt { background: #DBEAFE; color: #1D4ED8; }
+.tab:hover { border-color: var(--text3); color: var(--text1); }
+.tab.active { border-color: var(--blue); color: var(--blue); background: rgba(56,189,248,0.06); }
+.tab .cnt { font-size: 10.5px; color: var(--text3); font-variant-numeric: tabular-nums; }
+.tab.active .cnt { color: rgba(56,189,248,0.65); }
 
-/* ─── Main ───────────────────────────────────────────────── */
-.main { max-width: 940px; margin: 24px auto; padding: 0 18px; }
+/* ── Main ──────────────────────────────────────────────────── */
+.main { max-width: 960px; margin: 22px auto; padding: 0 18px; }
 
 /* Empty */
-.empty {
-  text-align: center; padding: 80px 24px; color: #94A3B8;
-}
-.empty-icon { font-size: 52px; margin-bottom: 14px; }
-.empty-h { font-size: 18px; font-weight: 600; color: #64748B; margin-bottom: 6px; }
-.empty-p { font-size: 14px; }
+.empty { text-align: center; padding: 80px 24px; font-family: var(--mono); }
+.empty-mark { font-size: 42px; color: var(--text3); margin-bottom: 16px; }
+.empty-h { font-size: 12.5px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text3); margin-bottom: 6px; }
+.empty-p { font-size: 11.5px; color: var(--text3); }
 
-/* Module section */
+/* ── Module sections ───────────────────────────────────────── */
+/* Per-module color palette */
+.section[data-mod="新产品发布"] { --mc: #38BDF8; --mc-bg: rgba(56,189,248,0.06); }
+.section[data-mod="新功能发布"] { --mc: #C084FC; --mc-bg: rgba(192,132,252,0.06); }
+.section[data-mod="重大合作"]  { --mc: #34D399; --mc-bg: rgba(52,211,153,0.06); }
+.section[data-mod="营销策略"]  { --mc: #FBBF24; --mc-bg: rgba(251,191,36,0.06); }
+.section[data-mod="其他"]     { --mc: #4B6078; --mc-bg: rgba(75,96,120,0.04); }
+
 .section {
-  background: #fff; border-radius: 10px;
-  border: 1px solid #E2E8F0; margin-bottom: 14px;
-  overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.04);
+  background: var(--surf);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--mc, var(--border2));
+  border-radius: 4px;
+  margin-bottom: 12px;
+  overflow: hidden;
 }
+
+/* Section header — circuit-trace rule */
 .sec-head {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 11px 16px; cursor: pointer; user-select: none;
-  border-bottom: 1px solid #F1F5F9; gap: 10px;
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 15px;
+  cursor: pointer; user-select: none;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
 }
-.sec-head:hover { background: #FAFAFA; }
-.sec-left { display: flex; align-items: center; gap: 9px; }
-.sec-icon { font-size: 18px; line-height: 1; }
-.sec-name { font-weight: 700; font-size: 14.5px; }
+.sec-head:hover { background: var(--surf-h); }
+
+.sec-title { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.sec-sym { font-size: 12px; color: var(--mc); }
+.sec-name {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--mc);
+}
+/* The "circuit trace" — key signature element */
+.sec-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--mc), transparent);
+  opacity: 0.22;
+  min-width: 20px;
+}
 .sec-cnt {
-  background: #F1F5F9; color: #64748B;
-  border-radius: 12px; padding: 2px 9px;
-  font-size: 12px; font-weight: 700;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
+  color: var(--text3); flex-shrink: 0;
 }
-.chevron { color: #CBD5E1; font-size: 11px; transition: transform .2s; }
+.chevron { font-size: 10px; color: var(--text3); transition: transform 0.2s; flex-shrink: 0; }
 .chevron.collapsed { transform: rotate(-90deg); }
 
-/* News item */
+/* ── News items ────────────────────────────────────────────── */
 .item {
-  display: flex; align-items: flex-start; gap: 11px;
-  padding: 11px 16px; border-bottom: 1px solid #F8FAFC;
-  transition: background .1s;
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 11px 15px 11px 13px;
+  border-bottom: 1px solid var(--border);
+  border-left: 2px solid transparent;
+  transition: background 0.12s, border-left-color 0.12s;
+  cursor: pointer;
 }
 .item:last-child { border-bottom: none; }
-.item:hover { background: #F8FAFC; }
+.item:hover { background: var(--mc-bg); border-left-color: var(--mc); }
+
 .dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  margin-top: 6px; flex-shrink: 0;
+  width: 6px; height: 6px; border-radius: 50%;
+  margin-top: 7px; flex-shrink: 0;
+  background: var(--mc);
+  box-shadow: 0 0 6px var(--mc);
+  opacity: 0.6; transition: opacity 0.15s;
 }
+.item:hover .dot { opacity: 1; }
+
 .ibody { flex: 1; min-width: 0; }
 .ititle {
-  display: block; font-size: 14px; font-weight: 500;
-  color: #0F172A; line-height: 1.45;
-  margin-bottom: 5px; word-break: break-word;
-  transition: color .1s;
+  display: block; font-size: 13.5px; font-weight: 500;
+  color: var(--text1); line-height: 1.5; margin-bottom: 5px;
+  word-break: break-word; transition: color 0.12s;
 }
-.item:hover .ititle { color: #1D4ED8; }
-.imeta { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.item:hover .ititle { color: #E8F4FD; }
+.imeta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .isrc {
-  font-size: 11.5px; background: #F1F5F9; color: #64748B;
-  padding: 1px 7px; border-radius: 4px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.04em;
+  color: var(--text3);
+  border: 1px solid var(--border2);
+  padding: 1px 7px; border-radius: 2px;
 }
-.idate { font-size: 11.5px; color: #94A3B8; }
+.idate {
+  font-family: var(--mono); font-size: 10.5px; color: var(--text3);
+}
 .inew {
-  font-size: 10.5px; font-weight: 700;
-  background: #DCFCE7; color: #15803D;
-  padding: 1px 6px; border-radius: 3px; letter-spacing: .03em;
+  font-family: var(--mono); font-size: 9.5px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  border: 1px solid rgba(52,211,153,0.45);
+  color: var(--green);
+  padding: 1px 7px; border-radius: 2px;
+  background: rgba(52,211,153,0.06);
+  animation: pulse-new 2.2s ease-in-out infinite;
 }
-/* Dot colours */
-.d-product   { background: #3B82F6; }
-.d-feature   { background: #F59E0B; }
-.d-partner   { background: #10B981; }
-.d-marketing { background: #8B5CF6; }
-.d-other     { background: #94A3B8; }
+@keyframes pulse-new { 0%,100% { opacity: 1; } 50% { opacity: 0.55; } }
 
-/* ─── Log ────────────────────────────────────────────────── */
-.log-wrap { margin: 0 auto 0; max-width: 940px; padding: 0 18px 18px; }
-.log-box { background: #1E293B; border-radius: 8px; overflow: hidden; display: none; }
+/* ── Log ───────────────────────────────────────────────────── */
+.log-wrap { max-width: 960px; margin: 0 auto; padding: 0 18px 22px; }
+.log-box {
+  background: #040810; border: 1px solid var(--border2);
+  border-left: 2px solid rgba(56,189,248,0.3);
+  border-radius: 4px; overflow: hidden; display: none;
+}
 .log-box.on { display: block; }
 .log-head {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 8px 14px; border-bottom: 1px solid #334155;
-  font-size: 12px; color: #64748B;
+  padding: 7px 14px; border-bottom: 1px solid var(--border);
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3);
 }
-.log-close { cursor: pointer; color: #475569; }
-.log-close:hover { color: #94A3B8; }
+.log-close { cursor: pointer; transition: color 0.1s; }
+.log-close:hover { color: var(--text2); }
 .log-body {
-  padding: 12px 14px; font-family: 'SF Mono', Menlo, Consolas, monospace;
-  font-size: 12px; line-height: 1.6; white-space: pre-wrap;
-  word-break: break-all; max-height: 280px; overflow-y: auto;
-  color: #CBD5E1;
+  padding: 12px 14px; font-family: var(--mono);
+  font-size: 11.5px; line-height: 1.75;
+  color: var(--text2); white-space: pre-wrap; word-break: break-all;
+  max-height: 260px; overflow-y: auto;
 }
+.log-body::-webkit-scrollbar { width: 3px; }
+.log-body::-webkit-scrollbar-track { background: transparent; }
+.log-body::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
 
-/* ─── Footer ─────────────────────────────────────────────── */
+/* ── Footer ────────────────────────────────────────────────── */
 .footer {
-  text-align: center; padding: 18px 20px;
-  font-size: 12px; color: #94A3B8;
-  line-height: 1.8;
+  text-align: center; padding: 22px;
+  font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text3); line-height: 2.2;
 }
 .footer code {
-  background: #E2E8F0; padding: 1px 6px;
-  border-radius: 3px; font-size: 11.5px;
+  color: var(--text2); border: 1px solid var(--border2);
+  padding: 1px 6px; border-radius: 2px;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 620px) {
+  .topbar { padding: 0 14px; gap: 10px; }
+  .topbar-meta { display: none; }
+  .main, .log-wrap { padding: 0 12px 20px; }
+  .brand-name { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .topbar::after, .p-fill,
+  .live-dot, .inew { animation: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- Top bar -->
+<!-- ── Header ─────────────────────────────────────────────── -->
 <header class="topbar">
   <div class="brand">
-    <span class="brand-icon">🤖</span>
+    <span class="brand-mark">◈</span>
     <span class="brand-name">机器人行业资讯</span>
+    <span class="live-badge"><span class="live-dot"></span>LIVE</span>
   </div>
   <div class="topbar-meta">
-    <span id="metaTime">加载中…</span>
-    <span class="meta-dot">·</span>
-    <span id="metaTotal"></span>
+    <span class="mk">SCAN</span>
+    <span class="mv" id="metaTime">——</span>
+    <span class="md">·</span>
+    <span class="mk">ITEMS</span>
+    <span class="mv" id="metaTotal">000</span>
   </div>
-  <!-- 仅本地管理员可见 -->
-  <div class="admin-controls" id="adminControls" style="display:none">
-    <button class="btn btn-fetch" id="btnFetch" onclick="doFetch()">🔍 立即抓取</button>
-    <button class="btn btn-publish" id="btnPublish" onclick="doPublish()">🚀 发布更新</button>
+  <!-- Admin controls — local only -->
+  <div class="admin-bar" id="adminBar" style="display:none">
+    <button class="btn btn-fetch"   id="btnFetch"   onclick="doFetch()">⬡ FETCH</button>
+    <button class="btn btn-publish" id="btnPublish" onclick="doPublish()">↑ PUBLISH</button>
   </div>
 </header>
 
-<!-- Progress bar -->
-<div class="progress" id="progress"><div class="progress-fill"></div></div>
+<!-- ── Progress ───────────────────────────────────────────── -->
+<div class="progress" id="progress"><div class="p-fill"></div></div>
 
-<!-- Alert -->
+<!-- ── Alert ──────────────────────────────────────────────── -->
 <div class="alert" id="alert">
   <span id="alertMsg"></span>
   <span class="alert-x" onclick="hideAlert()">✕</span>
 </div>
 
-<!-- Filter tabs -->
+<!-- ── Filter ─────────────────────────────────────────────── -->
 <nav class="tabs-wrap" id="tabsWrap"></nav>
 
-<!-- Main content -->
+<!-- ── Content ────────────────────────────────────────────── -->
 <main class="main" id="mainContent">
   <div class="empty">
-    <div class="empty-icon">📡</div>
-    <div class="empty-h">正在加载…</div>
+    <div class="empty-mark">◈</div>
+    <div class="empty-h">INITIALIZING DATA STREAM</div>
+    <div class="empty-p">Loading…</div>
   </div>
 </main>
 
-<!-- Log -->
+<!-- ── Log ────────────────────────────────────────────────── -->
 <div class="log-wrap">
   <div class="log-box" id="logBox">
     <div class="log-head">
-      <span>📋 运行日志</span>
-      <span class="log-close" onclick="document.getElementById('logBox').classList.remove('on')">收起 ✕</span>
+      <span>▸ SYSTEM LOG</span>
+      <span class="log-close" onclick="document.getElementById('logBox').classList.remove('on')">CLOSE ✕</span>
     </div>
     <div class="log-body" id="logBody"></div>
   </div>
 </div>
 
-<!-- Footer -->
 <footer class="footer" id="footer"></footer>
 
 <script>
-// ─── 环境检测 ────────────────────────────────────────────────
+// ─── Mode ────────────────────────────────────────────────────
 const IS_LOCAL = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 const NEWS_URL  = IS_LOCAL ? '/api/news'  : './news_cache.json';
-const FETCH_URL = '/api/fetch';
-const PUB_URL   = '/api/publish';
+if (IS_LOCAL) document.getElementById('adminBar').style.display = 'flex';
 
-// 本地模式：显示管理按钮
-if (IS_LOCAL) {
-  document.getElementById('adminControls').style.display = 'flex';
-}
-
-// ─── 模块配置 ────────────────────────────────────────────────
-const MODS = {
-  '新产品发布': { icon: '🤖', dot: 'd-product'   },
-  '新功能发布': { icon: '⚡', dot: 'd-feature'   },
-  '重大合作':  { icon: '🤝', dot: 'd-partner'   },
-  '营销策略':  { icon: '📣', dot: 'd-marketing' },
-  '其他':     { icon: '📰', dot: 'd-other'     },
-};
-const MOD_ORDER = Object.keys(MODS);
+// ─── Module config ───────────────────────────────────────────
+const MOD_ORDER = ['新产品发布','新功能发布','重大合作','营销策略','其他'];
+const MOD_ICON  = { '新产品发布':'🤖','新功能发布':'⚡','重大合作':'🤝','营销策略':'📣','其他':'📰' };
 
 let newsData     = null;
 let activeFilter = null;
 
-// ─── 数据加载 ────────────────────────────────────────────────
+// ─── Data ────────────────────────────────────────────────────
 async function loadNews() {
   try {
-    const r = await fetch(NEWS_URL + '?_=' + Date.now());
+    const r = await fetch(NEWS_URL + '?t=' + Date.now());
     if (!r.ok) throw new Error('HTTP ' + r.status);
     return await r.json();
-  } catch(e) {
-    console.error('loadNews:', e);
-    return { items: [], last_updated: null, new_count: 0, total: 0 };
-  }
+  } catch(e) { return { items:[], last_updated:null, new_count:0, total:0 }; }
 }
 
-// ─── 立即抓取 ────────────────────────────────────────────────
+// ─── Actions ─────────────────────────────────────────────────
 async function doFetch() {
   setBusy(true, 'fetch');
-  showAlert('正在抓取最新资讯，通常需要 20–60 秒，请稍候…', 'info');
+  showAlert('SCANNING — ACQUIRING LATEST ROBOT INTEL…', 'info');
   try {
-    const r = await fetch(FETCH_URL, { method: 'POST' });
-    const result = await r.json();
-    showLog(result.log, result.err);
-    if (result.ok) {
-      const nc = result.new_count;
-      showAlert(nc > 0 ? `✅ 新增 ${nc} 条资讯` : '✅ 采集完成，已是最新', 'success');
-    } else {
-      showAlert('⚠️ 采集遇到问题，请查看日志', 'error');
-    }
+    const res = await (await fetch('/api/fetch', {method:'POST'})).json();
+    showLog(res.log, res.err);
+    showAlert(res.ok
+      ? (res.new_count > 0 ? `SCAN COMPLETE — ${res.new_count} NEW ITEMS` : 'SCAN COMPLETE — NO NEW DATA')
+      : 'SCAN ERROR — CHECK SYSTEM LOG',
+      res.ok ? 'success' : 'error');
     newsData = await loadNews();
     render();
-  } catch(e) {
-    showAlert(`连接失败：${e.message}（请确认 server.py 正在运行）`, 'error');
-  } finally {
-    setBusy(false, 'fetch');
-  }
+  } catch(e) { showAlert('CONNECTION FAILED: ' + e.message, 'error'); }
+  finally    { setBusy(false, 'fetch'); }
 }
 
-// ─── 发布更新 ────────────────────────────────────────────────
 async function doPublish() {
   setBusy(true, 'publish');
-  showAlert('正在推送到 GitHub，请稍候…', 'info');
+  showAlert('UPLOADING TO REMOTE…', 'info');
   try {
-    const r = await fetch(PUB_URL, { method: 'POST' });
-    const result = await r.json();
-    showLog(result.log, result.err);
-    if (result.ok) {
-      showAlert('✅ 发布成功！GitHub Pages 约 1–2 分钟后更新', 'success');
-    } else {
-      showAlert('⚠️ 发布失败，请查看日志', 'error');
-    }
-  } catch(e) {
-    showAlert(`发布失败：${e.message}`, 'error');
-  } finally {
-    setBusy(false, 'publish');
-  }
+    const res = await (await fetch('/api/publish', {method:'POST'})).json();
+    showLog(res.log, res.err);
+    showAlert(res.ok ? 'PUBLISH OK — REMOTE UPDATES IN ~1 MIN' : 'PUBLISH FAILED — CHECK LOG',
+              res.ok ? 'success' : 'error');
+  } catch(e) { showAlert('PUBLISH FAILED: ' + e.message, 'error'); }
+  finally    { setBusy(false, 'publish'); }
 }
 
-// ─── UI 辅助 ─────────────────────────────────────────────────
-function setBusy(on, which) {
+// ─── UI helpers ──────────────────────────────────────────────
+function setBusy(on, w) {
   document.getElementById('progress').classList.toggle('on', on);
-  document.getElementById('btnFetch').disabled   = on;
-  document.getElementById('btnPublish').disabled = on;
-  const btn = document.getElementById(which === 'fetch' ? 'btnFetch' : 'btnPublish');
-  if (on) {
-    btn.innerHTML = which === 'fetch' ? '⏳ 抓取中…' : '⏳ 发布中…';
-  } else {
-    btn.innerHTML = which === 'fetch' ? '🔍 立即抓取' : '🚀 发布更新';
-  }
+  ['btnFetch','btnPublish'].forEach(id => document.getElementById(id).disabled = on);
+  document.getElementById('btnFetch').innerHTML   = (on && w==='fetch')    ? '⏳ SCANNING…'   : '⬡ FETCH';
+  document.getElementById('btnPublish').innerHTML = (on && w==='publish')  ? '⏳ UPLOADING…'  : '↑ PUBLISH';
 }
-
 function showAlert(msg, type) {
-  const el = document.getElementById('alert');
-  document.getElementById('alertMsg').textContent = msg;
-  el.className = `alert on ${type}`;
+  Object.assign(document.getElementById('alertMsg'), {textContent: msg});
+  document.getElementById('alert').className = `alert on ${type}`;
 }
 function hideAlert() { document.getElementById('alert').classList.remove('on'); }
-
 function showLog(log, err) {
-  const text = [log, err].filter(Boolean).join('\n').trim();
-  if (!text) return;
-  document.getElementById('logBody').textContent = text;
+  const t = [log,err].filter(Boolean).join('\n').trim();
+  if (!t) return;
+  document.getElementById('logBody').textContent = t;
   document.getElementById('logBox').classList.add('on');
 }
 
-// ─── 格式化 ──────────────────────────────────────────────────
+// ─── Format ──────────────────────────────────────────────────
 function fmtTime(iso) {
-  if (!iso) return '—';
-  const d = new Date(iso);
-  if (isNaN(d)) return iso;
-  const p = n => String(n).padStart(2, '0');
-  return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
+  if (!iso) return '——';
+  const d = new Date(iso), p = n => String(n).padStart(2,'0');
+  return isNaN(d) ? iso
+    : `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
 }
-function esc(s) {
-  return String(s || '')
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const pad3 = n => String(n||0).padStart(3,'0');
+const esc  = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+// ─── Render ──────────────────────────────────────────────────
+function renderMeta(d) {
+  document.getElementById('metaTime').textContent  = fmtTime(d?.last_updated);
+  document.getElementById('metaTotal').textContent = pad3(d?.total || d?.items?.length || 0);
 }
 
-// ─── 渲染 ────────────────────────────────────────────────────
-function renderTabs(data) {
+function renderTabs(d) {
   const nav = document.getElementById('tabsWrap');
-  const items = data?.items || [];
+  const items = d?.items || [];
   if (!items.length) { nav.classList.remove('on'); return; }
 
   const counts = {};
-  items.forEach(i => { counts[i.module] = (counts[i.module]||0)+1; });
-
-  nav.innerHTML = '';
-  nav.classList.add('on');
+  items.forEach(i => counts[i.module] = (counts[i.module]||0)+1);
+  nav.innerHTML = ''; nav.classList.add('on');
 
   const mkTab = (label, mod, cnt) => {
     const t = document.createElement('div');
     t.className = 'tab' + (activeFilter === mod ? ' active' : '');
-    t.innerHTML = `${esc(label)} <span class="cnt">${cnt}</span>`;
+    t.innerHTML = `${esc(label)} <span class="cnt">${pad3(cnt)}</span>`;
     t.onclick = () => { activeFilter = activeFilter === mod ? null : mod; render(); };
     return t;
   };
-
-  nav.appendChild(mkTab('全部', null, items.length));
-  MOD_ORDER.forEach(m => {
-    if (!counts[m]) return;
-    nav.appendChild(mkTab(MODS[m].icon + ' ' + m, m, counts[m]));
-  });
+  nav.appendChild(mkTab('ALL', null, items.length));
+  MOD_ORDER.forEach(m => counts[m] && nav.appendChild(mkTab(MOD_ICON[m]+' '+m, m, counts[m])));
 }
 
-function renderContent(data) {
-  const main = document.getElementById('mainContent');
-  const items = data?.items || [];
+function renderContent(d) {
+  const main  = document.getElementById('mainContent');
+  const items = d?.items || [];
 
   if (!items.length) {
     main.innerHTML = `
       <div class="empty">
-        <div class="empty-icon">📡</div>
-        <div class="empty-h">${IS_LOCAL ? '点击「立即抓取」开始采集' : '暂无数据'}</div>
-        <div class="empty-p">${IS_LOCAL ? '抓取完成后点「发布更新」同步给同事' : '管理员尚未发布资讯'}</div>
+        <div class="empty-mark">◈</div>
+        <div class="empty-h">${IS_LOCAL ? 'AWAITING FIRST SCAN' : 'NO DATA STREAM'}</div>
+        <div class="empty-p">${IS_LOCAL ? 'Press FETCH to begin data acquisition' : 'Administrator has not published data yet'}</div>
       </div>`;
     return;
   }
 
-  const newSet = new Set(items.slice(0, data.new_count || 0).map(i => i.url));
+  const newSet   = new Set(items.slice(0, d.new_count||0).map(i => i.url));
   const filtered = activeFilter ? items.filter(i => i.module === activeFilter) : items;
-
-  const grouped = {};
+  const grouped  = {};
   filtered.forEach(i => (grouped[i.module] = grouped[i.module]||[]).push(i));
 
   main.innerHTML = '';
-  MOD_ORDER.forEach(mod => {
-    if (!grouped[mod]) return;
-    main.appendChild(buildSection(mod, grouped[mod], newSet));
-  });
+  MOD_ORDER.forEach(mod => grouped[mod] && main.appendChild(buildSection(mod, grouped[mod], newSet)));
 }
 
 function buildSection(mod, items, newSet) {
-  const cfg = MODS[mod] || MODS['其他'];
-  const sec = document.createElement('div');
+  const sec  = document.createElement('div');
   sec.className = 'section';
+  sec.dataset.mod = mod;
 
   const head = document.createElement('div');
   head.className = 'sec-head';
   head.innerHTML = `
-    <div class="sec-left">
-      <span class="sec-icon">${cfg.icon}</span>
+    <div class="sec-title">
+      <span class="sec-sym">◈</span>
       <span class="sec-name">${esc(mod)}</span>
-      <span class="sec-cnt">${items.length}</span>
     </div>
-    <span class="chevron">▾</span>
-  `;
+    <div class="sec-rule"></div>
+    <span class="sec-cnt">[ ${pad3(items.length)} ]</span>
+    <span class="chevron">▾</span>`;
 
   const list = document.createElement('div');
   head.onclick = () => {
@@ -462,12 +559,13 @@ function buildSection(mod, items, newSet) {
   items.forEach(item => {
     const row = document.createElement('div');
     row.className = 'item';
+    row.onclick = e => { if (!e.target.closest('a')) window.open(item.url,'_blank','noopener'); };
     row.innerHTML = `
-      <div class="dot ${cfg.dot}"></div>
+      <div class="dot"></div>
       <div class="ibody">
         <a class="ititle" href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.title)}</a>
         <div class="imeta">
-          <span class="isrc">${esc(item.source || '搜索结果')}</span>
+          <span class="isrc">${esc(item.source||'SEARCH')}</span>
           ${item.fetched_at ? `<span class="idate">${esc(item.fetched_at)}</span>` : ''}
           ${newSet.has(item.url) ? '<span class="inew">NEW</span>' : ''}
         </div>
@@ -475,40 +573,20 @@ function buildSection(mod, items, newSet) {
     list.appendChild(row);
   });
 
-  sec.appendChild(head);
-  sec.appendChild(list);
+  sec.appendChild(head); sec.appendChild(list);
   return sec;
 }
 
-function renderMeta(data) {
-  const t = data?.last_updated ? `上次更新：${fmtTime(data.last_updated)}` : '尚未采集';
-  const n = `共 ${data?.total || data?.items?.length || 0} 条`;
-  document.getElementById('metaTime').textContent  = t;
-  document.getElementById('metaTotal').textContent = n;
-}
-
 function renderFooter() {
-  const f = document.getElementById('footer');
-  if (IS_LOCAL) {
-    f.innerHTML = `本地管理模式 <code>localhost:8080</code>
-      &nbsp;·&nbsp; 抓取后点「发布更新」可将结果推送到 GitHub Pages`;
-  } else {
-    f.innerHTML = `数据由管理员定期更新 &nbsp;·&nbsp; 仅供阅览`;
-  }
+  document.getElementById('footer').innerHTML = IS_LOCAL
+    ? `LOCAL ADMIN · <code>localhost:8080</code> · FETCH → PUBLISH TO SYNC`
+    : `READ-ONLY · DATA CURATED BY ADMIN`;
 }
 
-function render() {
-  renderMeta(newsData);
-  renderTabs(newsData);
-  renderContent(newsData);
-}
+function render() { renderMeta(newsData); renderTabs(newsData); renderContent(newsData); }
 
 // ─── Init ─────────────────────────────────────────────────────
-(async () => {
-  newsData = await loadNews();
-  render();
-  renderFooter();
-})();
+(async () => { newsData = await loadNews(); render(); renderFooter(); })();
 </script>
 </body>
 </html>
