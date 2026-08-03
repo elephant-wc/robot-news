@@ -1,8 +1,58 @@
 {
-  "last_updated": "2026-08-03T11:03:21.946233",
-  "new_count": 0,
-  "total": 35,
+  "last_updated": "2026-08-03T11:07:51.914590",
+  "new_count": 5,
+  "total": 40,
   "items": [
+    {
+      "title": "200个任务、1700万帧！大晓ACE-Data-0把真实家庭场景变成物理智能「数据引擎」",
+      "url": "https://www.leiphone.com/category/ai/KVck4bU07Fp4MMu8.html",
+      "summary": "近日，基于全球首创的具身模型信息密度定律与以人为中心的环境式数据采集方案2.0，并依托环境式采集引擎ACE，大晓机器人联合南洋理工大学 S-Lab 重磅开源 L5 级多模态具身物理智能数据集 ACE-Data-0。通过对真实物理交互、长程任务过程与多模态因果信号的高保真采集和高精度标注，ACE-Data-0 为全球具身模型提供面向泛化、反思与进化的高质量数据底座，推动通用物理智能加速跨越实验验证，走向规模化产业落地。 具身数据的价值不在于规模堆叠，而在于能否高密度记录那些真正改变行动结果的信息；",
+      "source": "雷锋网",
+      "lang": "zh",
+      "fetched_at": "2026-08-03",
+      "module": "重大合作",
+      "hash": "554b0b4826ffe22f6dccbc51e1ee0e97"
+    },
+    {
+      "title": "晶泰科技发布AI4S原生操作系统 XtalPi Science ，以多智能体矩阵开启自主科学发现新范式",
+      "url": "https://www.leiphone.com/category/aihealth/qZUov9NEbsp48psi.html",
+      "summary": "7 月 29 日，晶泰科技正式发布 XtalPi Science 科学智能平台与 Genius Agents 科学智能体矩阵，并联合 26 家产业、高校及科研生态伙伴，共同发起成立 “科学智能开放生态联盟”。联盟将依托 XtalPi Science，为成员提供平台与自动化实验资源的调用、模型与工具接入、联合开发及私有化部署等多元合作模式，共同推动模型、数据、工具与实验能力之间高效协同。 XtalPi Science 是全球首个整合大语言模型（LLM）、科学智能体与大规模自动化机器人实验的 AI ",
+      "source": "雷锋网",
+      "lang": "zh",
+      "fetched_at": "2026-08-03",
+      "module": "新产品发布",
+      "hash": "60482af5954ea56fdc247ab7b7d17e7f"
+    },
+    {
+      "title": "让Agent在协作中自进化，清华00后博士获千万元融资 | 36氪首发",
+      "url": "https://36kr.com/p/3919025939246727?f=rss",
+      "summary": "文 | 赵京娜 访谈 编辑 | 海若镜 36氪获悉，近日奇点逃逸完成千万级种子轮融资，由星连资本与水木创投联合领投，奇绩创坛跟投。其正在研发AI原生团队协作操作系统Nexus，让人、Agent、任务、知识和工具基于同一份组织状态持续协作，并让系统从每一次协作中有证据地变强。 奇点逃逸创始人兼CEO薛传奕，本科、博士阶段均在清华大学就读，研究方向覆盖强化学习与多智能体，曾以第一作者身份在NeurIPS、CJA等学术会议和期刊发表论文；在商汤、鉴智机器人实习期间，参与自动驾驶算法研发与实车部署。 “",
+      "source": "36氪",
+      "lang": "zh",
+      "fetched_at": "2026-08-03",
+      "module": "新产品发布",
+      "hash": "890e684beed6ac1316def20c944f2e2c"
+    },
+    {
+      "title": "9点1氪丨马斯克回应特斯拉剥离中国业务；国内航线燃油附加费将再次下调；中国最高薪本科专业易主",
+      "url": "https://36kr.com/p/3920241240419720?f=rss",
+      "summary": "今日热点导览 字节跳动发布视频创作模型Seedance 2.5 长鑫科技市值突破4万亿 人形机器人现“电量焦虑”，行业正在积极探索换电等不同路线 韩国KOSPI指数上涨18% Anthropic称AI模型在测试期间误侵三家真实机构系统 TOP3大新闻 马斯克回应特斯拉剥离中国业务 7月31日，对于特斯拉正考虑拆分中国业务的消息，特斯拉CEO马斯克在回应第三方转发评论时回复：“这是假新闻。”对于特斯拉正考虑出售或剥离其中国业务的消息，特斯拉中国内部人士也向第一财经记者表示：“不实消息。”（第一财经",
+      "source": "36氪",
+      "lang": "zh",
+      "fetched_at": "2026-08-03",
+      "module": "新产品发布",
+      "hash": "088651be00d744dc7cbb5c32796fe32f"
+    },
+    {
+      "title": "早报｜旗舰手机核心三件套成本超4000元/理想回应i6自动泊车反复调整/Kimi完成超35亿美元F轮融资",
+      "url": "https://www.ifanr.com/1673418?utm_source=rss&utm_medium=rss&utm_campaign=",
+      "summary": "Kimi 完成超 35 亿美元 F 轮融资，投后估值升至 350 亿美元 理想回应 i6 自动泊车反复调整：9 月优化泊车受阻提醒 智元、宇树等受限，美国宣布禁止进口新款中国机器人 继 Hugging Face 后，OpenAI 测试智能体攻入第二家科技公司 2nm 旗舰芯片价格上涨，手机核心三件套物料成本超过 600 美元 1100 名 AI 从业者联名呼吁放缓 AI 增长节奏 曝蚂蚁数科筹备 Pre-IPO 融资，蚂蚁系已有 3 家子公司独立融资 车企称智驾「小蓝灯」将被禁用 曝索尼将以 2",
+      "source": "爱范儿",
+      "lang": "zh",
+      "fetched_at": "2026-08-03",
+      "module": "新功能发布",
+      "hash": "9fa7fa368fe46710ccd6e3cf4d947d10"
+    },
     {
       "title": "Google DeepMind says Gemini Robotics 2 enables full body control",
       "url": "https://www.therobotreport.com/google-deepmind-says-gemini-robotics-2-enables-full-body-control/",
