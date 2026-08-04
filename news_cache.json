@@ -1,8 +1,78 @@
 {
-  "last_updated": "2026-08-03T11:30:41.384563",
-  "new_count": 0,
-  "total": 40,
+  "last_updated": "2026-08-04T09:21:18.282686",
+  "new_count": 7,
+  "total": 47,
   "items": [
+    {
+      "title": "igus launches energy chain with 600-degree rotation for industrial robots",
+      "url": "https://www.therobotreport.com/igus-launches-energy-chain-600-degree-rotation-industrial-robots/",
+      "summary": "The new power chain is designed for industrial applications such as palletizing. Source: igus Motion plastics leader igus GmbH has announced a new self-supporting twisterchain energy chain that it said delivers reliable cable management through rotat",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-04",
+      "module": "新产品发布",
+      "hash": "7d8508da6cc308cff0522e60afc03dc1"
+    },
+    {
+      "title": "HEBI Robotics earns NASA SBIR grant to fast track miniaturized actuators",
+      "url": "https://www.therobotreport.com/hebi-robotics-earns-nasa-sbir-grant-fast-track-miniaturized-actuators/",
+      "summary": "Clockwise from top left: HEBI’s T-Series, R-Series, and H-Series actuators. | Source: HEBI Robotics HEBI Robotics today said it has obtained a new NASA Small Business Innovation Research (SBIR) Phase I contract. With the contract, HEBI will fast-trac",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-04",
+      "module": "重大合作",
+      "hash": "75476dde620b81fbbd6303b1717eb50c"
+    },
+    {
+      "title": "Reimagine Robotics emerges from stealth with robots that ‘learn on the job’",
+      "url": "https://www.therobotreport.com/reimagine-robotics-emerges-stealth-with-robotslearn-on-the-job/",
+      "summary": "CEO Jonathan Scholz of Reimagine Robotics with the startup’s system. Source: Reimagine Robotics Artificial intelligence is enabling robots to learn on the job, according to Reimagine Robotics Ltd. The startup, which emerged from stealth today, is dev",
+      "source": "The Robot Report",
+      "lang": "en",
+      "fetched_at": "2026-08-04",
+      "module": "其他",
+      "hash": "05f275f16b43f98b1cfc4ed4ae943443"
+    },
+    {
+      "title": "RSS-2026 | 港科大（广州）开源首个无需训练的开放词汇3D占据地图构建系统｜RRS 2026",
+      "url": "https://www.leiphone.com/category/private/OuSOPivjok83Q3nb.html",
+      "summary": "来源：机器之心 原文链接：https://mp.weixin.qq.com/s/4e6qXfhfbrNKuJOpRCQqtw 从第一视角观测中持续重构三维世界，并理解空间中的几何结构与开放语义信息，是机器人具身感知领域的核心问题。语义占据预测（Semantic Occupancy Prediction） 通过将空间划分为三维体素网格，并为每个体素估计 “空闲、占据、未知” 状态及其语义类别，为机器人的空间推理、导航避障与交互操作提供统一的基础场景表达。 然而，现有三维占据预测方法仍高度依赖大规模",
+      "source": "雷锋网",
+      "lang": "zh",
+      "fetched_at": "2026-08-04",
+      "module": "其他",
+      "hash": "bf724162d0241e7b5d9f6f45a472bc2c"
+    },
+    {
+      "title": "对话博登智能赵捷：十亿订单在手，具身智能最缺的仍是高质量数据",
+      "url": "https://www.tmtpost.com/8085920.html",
+      "summary": "具身智能的数据生意正在迅速升温。 斯坦福大学《2026 AI Index Report》显示， 机器人 在仿真操作基准中的任务成功率已达到89.4%，进入真实家庭环境后却只有12%。具身智能与大语言模型需要的数据，有本质的区别，互联网数据可以直接用于训练语言和视觉模型，机器人的真实数据却必须通过现实交互逐条生产。 训练新模型需要覆盖不同本体、任务和环境的数据，模型上线后，还要利用真实数据验证泛化能力。机器人运行中产生的失败样本和人类接管数据，则需要回流训练环节，形成采集—训练—部署—反馈的持续闭",
+      "source": "钛媒体",
+      "lang": "zh",
+      "fetched_at": "2026-08-04",
+      "module": "新产品发布",
+      "hash": "5d4578ae89cff1e364c66e45a94dfd9e"
+    },
+    {
+      "title": "奔图科技切入清扫机器人赛道，打通“制造+安全”双引擎，开启第二增长曲线",
+      "url": "https://www.tmtpost.com/8089565.html",
+      "summary": "在具身智能概念席卷一二级市场、人形机器人屡获巨额融资之际，中国打印机巨头奔图科技（002180.SZ）选择了一条相对务实的路径，入局低速无人清扫赛道。 刚刚过去的7月，奔图科技旗下星擎智能联合广州赛特智能与北京理工大学大湾区创新研究院，共建具身智能联合实验室，并同步完成首批自动清扫机器人量产下线与战略意向订单签约。 从年初更名“奔图科技”，到如今清扫机器人量产，这轮跨界既是公司精密制造能力的自然溢出，也是对机器人数据安全、自主可控政策趋势的一次前置押注。在行业看来，“制造+安全”的双引擎，正在成",
+      "source": "钛媒体",
+      "lang": "zh",
+      "fetched_at": "2026-08-04",
+      "module": "新产品发布",
+      "hash": "07b87374947ba7774d3d8c8fcb9b0931"
+    },
+    {
+      "title": "机器人刷一段「短视频」，就能学会新技能？自变量 HOST 技术「神器」来了",
+      "url": "https://www.ifanr.com/1673600?utm_source=rss&utm_medium=rss&utm_campaign=",
+      "summary": "教会一台机器人叠袜子，一共分几步？ 摊平、对齐、折叠，再将袜口翻过来，这些看似简单的动作，过去机器人要学会，往往需要四五个小时的训练。但现在，只需一段数十秒的演示视频，就能快速掌握。 好家伙，这是哪来的东方神秘力量？ 最近，自变量机器人发布了一套名为 HOST 的机器人学习框架。HOST 全称为 Human-to-robot One-Shot Skill AcquisiTion，也就是「人类到机器人单样本技能获取」。 有了它，机器人只要看一段 29 秒的人类演示短视频，就能当场上手干活，期间甚至",
+      "source": "爱范儿",
+      "lang": "zh",
+      "fetched_at": "2026-08-04",
+      "module": "新产品发布",
+      "hash": "67231842b781062cfcc750cb3bb76c3c"
+    },
     {
       "title": "200个任务、1700万帧！大晓ACE-Data-0把真实家庭场景变成物理智能「数据引擎」",
       "url": "https://www.leiphone.com/category/ai/KVck4bU07Fp4MMu8.html",
